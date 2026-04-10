@@ -209,8 +209,6 @@ function initFormValidation() {
   if (!form) return;
 
   form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
     let isValid = true;
     const fields = form.querySelectorAll('[required]');
 
@@ -226,47 +224,11 @@ function initFormValidation() {
       }
     });
 
-    if (isValid) {
+    if (!isValid) {
+      e.preventDefault();
+    } else {
       const btn = form.querySelector('.btn--primary');
-      const originalText = btn.textContent;
-      btn.textContent = 'Enviando...';
-      btn.disabled = true;
-
-      fetch(form.action, {
-        method: form.method,
-        body: new FormData(form),
-        headers: {
-            'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          btn.textContent = '✓ Mensaje Enviado';
-          btn.style.background = 'rgba(212, 225, 87, 0.2)';
-          btn.style.color = '#D4E157';
-          btn.style.border = '1px solid rgba(212, 225, 87, 0.4)';
-          
-          setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.background = '';
-            btn.style.color = '';
-            btn.style.border = '';
-            btn.disabled = false;
-            form.reset();
-          }, 4000);
-        } else {
-          throw new Error('Error en el envío');
-        }
-      }).catch(error => {
-        btn.textContent = 'Error al enviar';
-        btn.style.background = 'rgba(255, 107, 107, 0.2)';
-        btn.style.color = '#ff6b6b';
-        setTimeout(() => {
-          btn.textContent = originalText;
-          btn.style.background = '';
-          btn.style.color = '';
-          btn.disabled = false;
-        }, 3000);
-      });
+      if (btn) btn.textContent = 'Redirigiendo...';
     }
   });
 }
@@ -371,8 +333,6 @@ function initDeletionForm() {
   if (!form) return;
 
   form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
     let isValid = true;
     const fields = form.querySelectorAll('[required]');
 
@@ -393,45 +353,11 @@ function initDeletionForm() {
       isValid = false;
     }
 
-    if (isValid) {
+    if (!isValid) {
+      e.preventDefault();
+    } else {
       const btn = form.querySelector('.btn--primary');
-      const originalText = btn.textContent;
-      btn.textContent = 'Enviando...';
-      btn.disabled = true;
-
-      fetch(form.action, {
-        method: form.method,
-        body: new FormData(form),
-        headers: {
-            'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          btn.textContent = '✓ Solicitud Enviada';
-          btn.style.background = 'rgba(212, 225, 87, 0.2)';
-          btn.style.color = '#D4E157';
-          
-          setTimeout(() => {
-            form.reset();
-            btn.textContent = originalText;
-            btn.style.background = '';
-            btn.style.color = '';
-            btn.disabled = false;
-          }, 4000);
-        } else {
-          throw new Error('Error en el envío');
-        }
-      }).catch(error => {
-        btn.textContent = 'Error al enviar';
-        btn.style.background = 'rgba(255, 107, 107, 0.2)';
-        btn.style.color = '#ff6b6b';
-        setTimeout(() => {
-          btn.textContent = originalText;
-          btn.style.background = '';
-          btn.style.color = '';
-          btn.disabled = false;
-        }, 3000);
-      });
+      if (btn) btn.textContent = 'Redirigiendo...';
     }
   });
 }
