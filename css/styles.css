@@ -343,7 +343,11 @@ p {
   gap: 5px;
   cursor: pointer;
   z-index: 1001;
-  padding: 5px;
+  padding: 8px;
+  background: rgba(10, 10, 10, 0.4);
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 .hamburger span {
@@ -405,6 +409,15 @@ p {
 .mobile-menu a:hover {
   color: var(--color-sun-glare);
   transform: translateX(10px);
+}
+
+.mobile-menu a.btn {
+  color: var(--color-black);
+}
+
+.mobile-menu a.btn:hover {
+  color: var(--color-black);
+  transform: translateY(-3px);
 }
 
 /* ---------- Hero Section ---------- */
