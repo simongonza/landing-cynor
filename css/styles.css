@@ -1894,6 +1894,23 @@ textarea.form-control {
   animation-delay: -0.5s;
 }
 
+@media (max-width: 768px) {
+  .intel-dash {
+    padding: var(--space-xl);
+    max-width: 100%;
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .intel-dash__rings {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .intel-dash__number {
+    font-size: 1.8rem;
+  }
+}
+
 /* Animations */
 @keyframes dash-wave {
   0% {
