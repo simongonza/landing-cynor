@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Cynor es una empresa de tecnología aplicada a negocios. Desarrollamos inteligencia artificial y automatización para reducir trabajo manual y optimizar ventas.">
+    content="Artículos especializados en inteligencia artificial, desarrollo web, publicidad e implementación de automatizaciones para empresas.">
   <meta name="keywords"
     content="empresa de tecnología, inteligencia artificial para negocios, desarrollo de software, agencia automatización corporativa">
   <meta name="author" content="Cynor">
-  <title>Quiénes Somos — Empresa de Tecnología y Automatización | Cynor</title>
+  <title>Blog Oficial | Empresa de Tecnología Cynor</title>
 
   <link rel="canonical" href="https://www.cynor.digital/quienes-somos.html">
 
@@ -63,7 +62,8 @@
             <a href="desarrollo-web.html">Desarrollo Web</a>
           </div>
         </div>
-        <a href="quienes-somos.html" class="navbar__link active">Quiénes Somos</a>
+        <a href="quienes-somos.html" class="navbar__link">Quiénes Somos</a>
+        <a href="blog.html" class="navbar__link">Blog</a>
 
         <a href="contacto.html" class="navbar__link">Contacto</a>
         <a href="https://wa.me/573128861517" class="navbar__cta" target="_blank" rel="noopener noreferrer">Hablemos
@@ -98,175 +98,33 @@
   </div>
 
   <!-- Page Hero -->
-  <section class="page-hero">
+  <section class="page-hero" style="padding-bottom: 2rem;">
     <div class="glow-orb glow-orb--violet" style="width: 500px; height: 500px; top: -20%; right: -10%;"></div>
     <div class="container">
-      <span class="page-hero__tag reveal">Empresa de Tecnología</span>
-      <h1 class="page-hero__title reveal delay-1">
-        Sistemas que trabajan <span class="text-gradient">por tu negocio</span>
+      <span class="page-hero__tag reveal">Blog Cynor</span>
+      <h1 id="blog-hero-title" class="page-hero__title reveal delay-1" style="font-size: 3rem; margin-top:1rem;">
+        Blog <span class="text-gradient">Cynor</span>
       </h1>
-      <p class="page-hero__text reveal delay-2">
-        Cynor es una empresa de tecnología aplicada a negocios. Integramos inteligencia artificial, automatización de
-        procesos, desarrollo de software y publicidad digital con un único objetivo: reducir tu trabajo manual,
-        optimizar las operaciones y aumentar las ventas mediante sistemas digitales escalables.
-      </p>
     </div>
   </section>
 
-  <!-- Mission Section -->
-  <section class="section" id="mision">
+  <section class="section" style="padding-top: 0;">
     <div class="container">
-      <div class="grid-2" style="max-width: 1000px; margin: 0 auto; align-items: center; gap: var(--space-4xl);">
-        <div class="reveal-left">
-          <span class="section-header__tag"
-            style="display: block; margin-bottom: var(--space-md); text-align: left;">Nuestra Visión Técnica</span>
-          <h2 style="margin-bottom: var(--space-xl);">Menos carga operativa, <span class="text-gradient">más
-              infraestructura escalable</span></h2>
-          <p style="margin-bottom: var(--space-lg);">
-            Las empresas tradicionales enfrentan un cuello de botella constante: a medida que crecen, la carga de
-            trabajo manual se vuelve insostenible, aumentando los errores y reduciendo la conversión comercial.
-          </p>
-          <p>
-            Cynor existe para cambiar ese paradigma. Construimos infraestructuras tecnológicas y sistemas completos que
-            integran IA, automatización y marketing de respuesta directa, para crear entornos donde el negocio funciona
-            y atiende clientes de forma autónoma.
-          </p>
-        </div>
-        <div class="reveal-right" style="display: flex; justify-content: center;">
-          <!-- Intelligence Dash Component -->
-          <div class="intel-dash intel-dash--about reveal-scale">
-            <div class="intel-dash__waves">
-              <div class="intel-dash__wave"></div>
-              <div class="intel-dash__wave intel-dash__wave--2"></div>
-            </div>
 
-            <div class="intel-dash__content">
-              <div class="intel-dash__header">
-                <div class="intel-dash__status">
-                  <div class="intel-dash__pulse"></div>
-                  <span>System Active</span>
-                </div>
-                <div class="intel-dash__status" style="color: var(--color-violet);">
-                  <span>v2.0.4</span>
-                  <div class="intel-dash__visual-img"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <!-- SPA Views Container -->
+      <div id="blog-list" class="grid-3" style="margin-top: 3rem;">
+        <!-- Filled by JS -->
       </div>
+
+      <div id="blog-post"
+        style="display: none; margin: 2rem auto 0; max-width: 800px; color: var(--text-secondary); line-height: 1.8; font-size: 1.1rem;"
+        class="reveal">
+        <!-- Filled by JS -->
+      </div>
+
+
     </div>
   </section>
-
-  <!-- Values Section -->
-  <section class="section section--alt" id="valores">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-header__tag">Lo que nos define</span>
-        <h2 class="section-header__title">Nuestros <span class="text-gradient">Valores</span></h2>
-      </div>
-
-      <div class="values-grid">
-        <div class="card value-card reveal delay-1">
-          <div class="card__icon"
-            style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
-            🎯</div>
-          <h3 class="card__title text-center">Precisión</h3>
-          <p class="card__text text-center">No llegamos con soluciones genéricas. Cada sistema que construimos está
-            diseñado específicamente para tu operación.</p>
-        </div>
-
-        <div class="card value-card reveal delay-2">
-          <div class="card__icon"
-            style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
-            🔬</div>
-          <h3 class="card__title text-center">Innovación</h3>
-          <p class="card__text text-center">Usamos las tecnologías más avanzadas de IA para crear soluciones que
-            realmente transforman la manera en que operas.</p>
-        </div>
-
-        <div class="card value-card reveal delay-3">
-          <div class="card__icon"
-            style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
-            🤝</div>
-          <h3 class="card__title text-center">Compromiso</h3>
-          <p class="card__text text-center">Tu éxito es nuestro éxito. Nos involucramos profundamente en entender tu
-            negocio para entregar resultados reales.</p>
-        </div>
-
-        <div class="card value-card reveal delay-4">
-          <div class="card__icon"
-            style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
-            📈</div>
-          <h3 class="card__title text-center">Escalabilidad</h3>
-          <p class="card__text text-center">Diseñamos sistemas que crecen contigo. Lo que construimos hoy debe funcionar
-            cuando tu negocio sea 10x más grande.</p>
-        </div>
-
-        <div class="card value-card reveal delay-5">
-          <div class="card__icon"
-            style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
-            🛡️</div>
-          <h3 class="card__title text-center">Confianza</h3>
-          <p class="card__text text-center">Tus datos son sagrados. Operamos con los más altos estándares de seguridad y
-            privacidad en cada proyecto.</p>
-        </div>
-
-        <div class="card value-card reveal delay-5">
-          <div class="card__icon"
-            style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
-            ⚙️</div>
-          <h3 class="card__title text-center">Eficiencia</h3>
-          <p class="card__text text-center">Cada proceso que automatizamos libera tiempo real en tu operación. Menos
-            tareas manuales, más enfoque estratégico.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="enfoque">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-header__tag">Resultados Reales</span>
-        <h2 class="section-header__title">Qué logras <span class="text-gradient">con nosotros</span></h2>
-        <p class="section-header__subtitle">
-          Nuestro objetivo no es llenarte de tecnología complicada. Buscamos generar una transformación visible y
-          positiva en el día a día de tu negocio.
-        </p>
-      </div>
-
-      <div style="max-width: 700px; margin: 0 auto;">
-        <div class="feature-list">
-          <div class="feature-item reveal delay-1">
-            <div class="feature-item__check">✓</div>
-            <p class="feature-item__text"><strong>Reducción de Tiempo Manual:</strong> Delegamos en software procesos
-              manuales críticos como calificación de leads y actualización de bases de datos.</p>
-          </div>
-          <div class="feature-item reveal delay-2">
-            <div class="feature-item__check">✓</div>
-            <p class="feature-item__text"><strong>Optimización de Conversión:</strong> Evitamos la fuga de clientes
-              potenciales atendiendo consultas complejas de manera instantánea vía inteligencia artificial.</p>
-          </div>
-          <div class="feature-item reveal delay-3">
-            <div class="feature-item__check">✓</div>
-            <p class="feature-item__text"><strong>Integración Cohesiva:</strong> Conectamos flujos de marketing
-              publicitario directamente a agentes de atención para obtener trazabilidad completa.</p>
-          </div>
-          <div class="feature-item reveal delay-4">
-            <div class="feature-item__check">✓</div>
-            <p class="feature-item__text"><strong>Desarrollo Web de Alto Rendimiento:</strong> Aplicamos tácticas de SEO
-              técnico y heurísticas de conversión para sitios web corporativos y transaccionales.</p>
-          </div>
-          <div class="feature-item reveal delay-5">
-            <div class="feature-item__check">✓</div>
-            <p class="feature-item__text"><strong>Escalabilidad Directa:</strong> Construimos ecosistemas configurados
-              para multiplicar sus operaciones sin el equivalente proporcional en horas hombre.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- CTA Section -->
   <section class="section cta-section">
     <div class="container">
@@ -363,6 +221,7 @@
   </button>
 
   <script src="js/main.js"></script>
+  <script src="js/blog.js"></script>
 </body>
 
 </html>
