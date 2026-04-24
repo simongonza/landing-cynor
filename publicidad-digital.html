@@ -40,15 +40,40 @@
   <meta name="twitter:image" content="https://www.cynor.digital/src/Logo.png">
 
   <meta name="theme-color" content="#0A0A0A">
+    <link rel="preload" href="src/Logo.png" as="image" type="image/png">
   <link rel="icon" type="image/png" href="src/favicon.png?v=3">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Preconnect to font servers -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
+  <!-- Non-blocking async font load -->
+  <link rel="preload" as="style"
     href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap"
-    rel="stylesheet">
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap">
+  </noscript>
 
-  <link rel="stylesheet" href="css/styles.css">
+  <!-- Preload + async main stylesheet -->
+  <link rel="preload" href="css/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/styles.min.css"></noscript>
+  <!-- Critical CSS inline for above-the-fold -->
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#0A0A0A;color:#F5F5F5;overflow-x:hidden;min-height:100vh}
+    .loader{position:fixed;inset:0;background:#0A0A0A;z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease}
+    .loader.hidden{opacity:0;visibility:hidden}
+    .loader__icon{width:60px;height:60px;animation:lp 1.5s ease-in-out infinite}
+    @keyframes lp{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.15);opacity:.6}}
+    .navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;height:80px;display:flex;align-items:center;background:transparent;transition:all .3s cubic-bezier(.4,0,.2,1)}
+    .navbar__inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1200px;margin:0 auto;padding:0 2rem}
+    .navbar__logo img{height:56px;width:auto;filter:invert(1) brightness(2)}
+    .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:80px}
+    h1,h2,h3,h4{font-family:'Orbitron',sans-serif;font-weight:700;line-height:1.2}
+    h1{font-size:clamp(2rem,5vw,3.5rem)}
+  </style>
 </head>
 
 <body>
@@ -60,14 +85,14 @@
    
   <!-- Loader -->
   <div class="loader" id="loader">
-    <img src="src/Favoni.png" alt="Cynor Loading" class="loader__icon">
+    <img src="src/Favoni.png" alt="Cynor Loading" class="loader__icon" width="60" height="60">
   </div>
 
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <div class="navbar__inner">
       <a href="index.html" class="navbar__logo" aria-label="Cynor Home">
-        <img src="src/Logo.png" alt="Cynor Logo">
+        <img src="src/Logo.png" alt="Cynor Logo" width="709" height="339" loading="eager">
       </a>
       <div class="navbar__menu">
         <a href="index.html" class="navbar__link">Inicio</a>
@@ -96,15 +121,15 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">Inicio</a>
-    <div class="mobile-dropdown" style="text-align: center;">
-      <span
-        style="display:block; padding:10px; font-family:'Orbitron', sans-serif; font-size:1.5rem; font-weight:600; color:var(--text-secondary); cursor:default;">Servicios
-        ▼</span>
-      <div class="mobile-dropdown-content" style="display:flex; flex-direction:column; gap:15px; margin-top:10px;">
-        <a href="agentes-ia.html" style="font-size:1.1rem; color:var(--text-muted);">Agentes Inteligentes</a>
-        <a href="automatizacion.html" style="font-size:1.1rem; color:var(--text-muted);">Automatizaciones</a>
-        <a href="publicidad-digital.html" style="font-size:1.1rem; color:var(--text-muted);">Publicidad Digital</a>
-        <a href="desarrollo-web.html" style="font-size:1.1rem; color:var(--text-muted);">Desarrollo Web</a>
+    <div class="mobile-nav-dropdown" id="mobileServicesDropdown">
+      <button class="mobile-nav-dropdown__toggle" id="mobileServicesToggle">
+        Servicios <span class="mobile-nav-dropdown__arrow">▼</span>
+      </button>
+      <div class="mobile-nav-dropdown__content">
+        <a href="agentes-ia.html">Agentes Inteligentes</a>
+        <a href="automatizacion.html">Automatizaciones</a>
+        <a href="publicidad-digital.html">Publicidad Digital</a>
+        <a href="desarrollo-web.html">Desarrollo Web</a>
       </div>
     </div>
     <a href="quienes-somos.html">Quiénes Somos</a>
@@ -151,7 +176,7 @@
           </p>
         </div>
         <div class="reveal-right" style="display: flex; justify-content: center;">
-          <!-- Intelligence Dash Component -->
+          <!-- Intelligence Dash Component — Performance Chart Variant -->
           <div class="intel-dash intel-dash--ads reveal-scale">
             <div class="intel-dash__waves">
               <div class="intel-dash__wave"></div>
@@ -162,11 +187,51 @@
               <div class="intel-dash__header">
                 <div class="intel-dash__status">
                   <div class="intel-dash__pulse"></div>
-                  <span>System Active</span>
+                  <span>Campaña Activa</span>
                 </div>
                 <div class="intel-dash__status" style="color: var(--color-violet);">
-                  <span>v2.0.4</span>
-                  <div class="intel-dash__visual-img"></div>
+                  <span>Meta + Google</span>
+                </div>
+              </div>
+
+              <div class="dash-chart">
+                <div class="dash-chart__kpis">
+                  <div class="dash-chart__kpi">
+                    <span class="dash-chart__kpi-value">3.2x</span>
+                    <span class="dash-chart__kpi-label">ROAS</span>
+                  </div>
+                  <div style="display:flex; flex-direction:column; gap:4px; align-items:flex-end;">
+                    <span class="dash-chart__badge">↑ 34% leads</span>
+                    <span class="dash-chart__badge">↓ 18% CPA</span>
+                  </div>
+                </div>
+
+                <div class="dash-chart__svg-wrap">
+                  <svg viewBox="0 0 260 90" preserveAspectRatio="none" style="overflow:visible;">
+                    <defs>
+                      <linearGradient id="chart-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#9B8FD0;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#D4E157;stop-opacity:1" />
+                      </linearGradient>
+                      <linearGradient id="chart-area-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#9B8FD0;stop-opacity:0.5" />
+                        <stop offset="100%" style="stop-color:#9B8FD0;stop-opacity:0" />
+                      </linearGradient>
+                    </defs>
+                    <path class="dash-chart__area-path" fill="url(#chart-area-grad)" d="M0 80 Q50 72 80 65 T140 48 T200 28 T260 12 L260 90 L0 90 Z"/>
+                    <path class="dash-chart__line-path" d="M0 80 Q50 72 80 65 T140 48 T200 28 T260 12"/>
+                    <circle class="dash-chart__dot" cx="260" cy="12" r="0"/>
+                  </svg>
+                </div>
+
+                <div class="dash-chart__bars">
+                  <div class="dash-chart__bar" style="height:28%;"></div>
+                  <div class="dash-chart__bar" style="height:42%;"></div>
+                  <div class="dash-chart__bar" style="height:38%;"></div>
+                  <div class="dash-chart__bar" style="height:62%;"></div>
+                  <div class="dash-chart__bar" style="height:55%;"></div>
+                  <div class="dash-chart__bar" style="height:78%;"></div>
+                  <div class="dash-chart__bar" style="height:92%;"></div>
                 </div>
               </div>
             </div>
@@ -190,8 +255,7 @@
             style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
             🎯</div>
           <h3 class="card__title text-center">Meta Ads (Facebook/Insta)</h3>
-          <p class="card__text text-center">No llegamos con soluciones genéricas. Cada sistema que construimos está
-            diseñado específicamente para tu operación.</p>
+          <p class="card__text text-center">Llegamos a las personas correctas en el momento en que están receptivas. Mostramos tu oferta a quién ya tiene el perfil de tu cliente ideal, y la optimizamos sin parar.</p>
         </div>
 
         <div class="card value-card reveal delay-2">
@@ -199,8 +263,7 @@
             style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
             🔬</div>
           <h3 class="card__title text-center">Google Ads (Search)</h3>
-          <p class="card__text text-center">Usamos las tecnologías más avanzadas de IA para crear soluciones que
-            realmente transforman la manera en que operas.</p>
+          <p class="card__text text-center">Capturamos a quien ya está buscando lo que tú vendes. La intención de compra ya existe — nosotros nos aseguramos de que te encuentren a ti primero.</p>
         </div>
 
         <div class="card value-card reveal delay-3">
@@ -208,8 +271,7 @@
             style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
             🤝</div>
           <h3 class="card__title text-center">Embudos de Adquisición</h3>
-          <p class="card__text text-center">Tu éxito es nuestro éxito. Nos involucramos profundamente en entender tu
-            negocio para entregar resultados reales.</p>
+          <p class="card__text text-center">El anuncio solo es el comienzo. Conectamos cada campaña con una landing page diseñada para convertir y un agente que atiende al lead de inmediato.</p>
         </div>
 
         <div class="card value-card reveal delay-4">
@@ -217,8 +279,7 @@
             style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
             📈</div>
           <h3 class="card__title text-center">Análisis de Atribución</h3>
-          <p class="card__text text-center">Diseñamos sistemas que crecen contigo. Lo que construimos hoy debe funcionar
-            cuando tu negocio sea 10x más grande.</p>
+          <p class="card__text text-center">Sabes exactamente qué anuncio, qué público y qué día te generó cada cliente. Nada de publicidad ciega: cada decisión tiene datos detrás.</p>
         </div>
 
         <div class="card value-card reveal delay-5">
@@ -226,8 +287,7 @@
             style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
             🛡️</div>
           <h3 class="card__title text-center">Pruebas A/B Constantes</h3>
-          <p class="card__text text-center">Tus datos son sagrados. Operamos con los más altos estándares de seguridad y
-            privacidad en cada proyecto.</p>
+          <p class="card__text text-center">Probamos versiones de anuncios, textos y audiencias constantemente. Lo que funciona, lo escalamos. Lo que no, lo cambiamos antes de que drene tu presupuesto.</p>
         </div>
 
         <div class="card value-card reveal delay-5">
@@ -235,8 +295,7 @@
             style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
             ⚙️</div>
           <h3 class="card__title text-center">Alineación Comercial</h3>
-          <p class="card__text text-center">Cada proceso que automatizamos libera tiempo real en tu operación. Menos
-            tareas manuales, más enfoque estratégico.</p>
+          <p class="card__text text-center">La publicidad debe alimentar tu proceso de ventas, no existir sola. Coordinamos campañas con tu equipo o agente para que ningún lead se pierda sin atención.</p>
         </div>
       </div>
     </div>
@@ -290,17 +349,16 @@
     <div class="container">
       <div class="cta-box reveal-scale">
         <div class="glow-orb glow-orb--violet" style="width: 300px; height: 300px; top: -30%; right: -10%;"></div>
-        <span class="section-header__tag" style="position: relative; z-index: 1;">Empieza hoy mismo</span>
+        <span class="section-header__tag" style="position: relative; z-index: 1;">Sin compromiso</span>
         <h2 class="cta-box__title">
-          Haz que tu negocio<br>
-          <span class="text-gradient">despegue en piloto automático</span>
+          ¿Cuánto estás invirtiendo<br>
+          <span class="text-gradient">sin saber qué te está dando?</span>
         </h2>
         <p class="cta-box__text">
-          Cada día que pasa sin la estructura correcta, pierdes tiempo y dejas dinero sobre la mesa. Toma el control y
-          agiliza tus procesos ahora.
+          Cuéntanos cómo llevas tu publicidad hoy y te decimos qué se puede mejorar. Sin rodeos.
         </p>
         <a href="https://wa.me/573128861517" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
-          Empezar ahora
+          Agenda una asesoría
           <span class="btn__arrow">→</span>
         </a>
       </div>
@@ -312,7 +370,7 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <img src="src/Logo.png" alt="Cynor Logo">
+          <img src="src/Logo.png" alt="Cynor Logo" width="200" height="96" loading="lazy">
           <p>Innovación inteligente para tu crecimiento. Te ayudamos a vender más y operar mejor con herramientas de
             automatización y asistentes virtuales.</p>
         </div>
@@ -380,7 +438,7 @@
     </svg>
   </button>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js" defer></script>
 </body>
 
 </html>

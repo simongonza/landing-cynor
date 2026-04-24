@@ -40,15 +40,40 @@
   <meta name="twitter:image" content="https://www.cynor.digital/src/Logo.png">
 
   <meta name="theme-color" content="#0A0A0A">
+    <link rel="preload" href="src/Logo.png" as="image" type="image/png">
   <link rel="icon" type="image/png" href="src/favicon.png?v=3">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Preconnect to font servers -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
+  <!-- Non-blocking async font load -->
+  <link rel="preload" as="style"
     href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap"
-    rel="stylesheet">
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap">
+  </noscript>
 
-  <link rel="stylesheet" href="css/styles.css">
+  <!-- Preload + async main stylesheet -->
+  <link rel="preload" href="css/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/styles.min.css"></noscript>
+  <!-- Critical CSS inline for above-the-fold -->
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#0A0A0A;color:#F5F5F5;overflow-x:hidden;min-height:100vh}
+    .loader{position:fixed;inset:0;background:#0A0A0A;z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease}
+    .loader.hidden{opacity:0;visibility:hidden}
+    .loader__icon{width:60px;height:60px;animation:lp 1.5s ease-in-out infinite}
+    @keyframes lp{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.15);opacity:.6}}
+    .navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;height:80px;display:flex;align-items:center;background:transparent;transition:all .3s cubic-bezier(.4,0,.2,1)}
+    .navbar__inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1200px;margin:0 auto;padding:0 2rem}
+    .navbar__logo img{height:56px;width:auto;filter:invert(1) brightness(2)}
+    .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:80px}
+    h1,h2,h3,h4{font-family:'Orbitron',sans-serif;font-weight:700;line-height:1.2}
+    h1{font-size:clamp(2rem,5vw,3.5rem)}
+  </style>
 </head>
 
 <body>
@@ -60,14 +85,14 @@
 
   <!-- Loader -->
   <div class="loader" id="loader">
-    <img src="src/Favoni.png" alt="Cynor Loading" class="loader__icon">
+    <img src="src/Favoni.png" alt="Cynor Loading" class="loader__icon" width="60" height="60">
   </div>
 
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <div class="navbar__inner">
       <a href="index.html" class="navbar__logo" aria-label="Cynor Home">
-        <img src="src/Logo.png" alt="Cynor Logo">
+        <img src="src/Logo.png" alt="Cynor Logo" width="709" height="339" loading="eager">
       </a>
       <div class="navbar__menu">
         <a href="index.html" class="navbar__link">Inicio</a>
@@ -96,15 +121,15 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">Inicio</a>
-    <div class="mobile-dropdown" style="text-align: center;">
-      <span
-        style="display:block; padding:10px; font-family:'Orbitron', sans-serif; font-size:1.5rem; font-weight:600; color:var(--text-secondary); cursor:default;">Servicios
-        ▼</span>
-      <div class="mobile-dropdown-content" style="display:flex; flex-direction:column; gap:15px; margin-top:10px;">
-        <a href="agentes-ia.html" style="font-size:1.1rem; color:var(--text-muted);">Agentes Inteligentes</a>
-        <a href="automatizacion.html" style="font-size:1.1rem; color:var(--text-muted);">Automatizaciones</a>
-        <a href="publicidad-digital.html" style="font-size:1.1rem; color:var(--text-muted);">Publicidad Digital</a>
-        <a href="desarrollo-web.html" style="font-size:1.1rem; color:var(--text-muted);">Desarrollo Web</a>
+    <div class="mobile-nav-dropdown" id="mobileServicesDropdown">
+      <button class="mobile-nav-dropdown__toggle" id="mobileServicesToggle">
+        Servicios <span class="mobile-nav-dropdown__arrow">▼</span>
+      </button>
+      <div class="mobile-nav-dropdown__content">
+        <a href="agentes-ia.html">Agentes Inteligentes</a>
+        <a href="automatizacion.html">Automatizaciones</a>
+        <a href="publicidad-digital.html">Publicidad Digital</a>
+        <a href="desarrollo-web.html">Desarrollo Web</a>
       </div>
     </div>
     <a href="quienes-somos.html">Quiénes Somos</a>
@@ -149,7 +174,7 @@
           </p>
         </div>
         <div class="reveal-right" style="display: flex; justify-content: center;">
-          <!-- Intelligence Dash Component -->
+          <!-- Intelligence Dash Component — Chat Variant -->
           <div class="intel-dash intel-dash--agentes reveal-scale">
             <div class="intel-dash__waves">
               <div class="intel-dash__wave"></div>
@@ -160,12 +185,31 @@
               <div class="intel-dash__header">
                 <div class="intel-dash__status">
                   <div class="intel-dash__pulse"></div>
-                  <span>System Active</span>
+                  <span>Agente Activo</span>
                 </div>
                 <div class="intel-dash__status" style="color: var(--color-violet);">
-                  <span>v2.0.4</span>
-                  <div class="intel-dash__visual-img"></div>
+                  <span>WhatsApp ✓</span>
                 </div>
+              </div>
+
+              <div class="dash-chat">
+                <div class="dash-chat__bubble dash-chat__bubble--in">
+                  Hola, quiero info sobre sus precios 👋
+                </div>
+                <div class="dash-chat__bubble dash-chat__bubble--out">
+                  ¡Hola! Claro que sí. ¿Cuál es tu negocio principal?
+                </div>
+                <div class="dash-chat__bubble dash-chat__bubble--in2">
+                  Tengo una clínica en Bogotá
+                </div>
+                <div class="dash-chat__typing">
+                  <span></span><span></span><span></span>
+                </div>
+              </div>
+
+              <div class="dash-chat__footer">
+                <div class="dash-chat__bar"></div>
+                <span>Respondiendo...</span>
               </div>
             </div>
           </div>
@@ -190,17 +234,15 @@
             style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
             🗓️</div>
           <h3 class="card__title text-center">Secretaría virtual</h3>
-          <p class="card__text text-center">Responde mensajes, agenda citas y atiende consultas básicas. Como tener una
-            recepcionista, pero disponible a cualquier hora.</p>
+          <p class="card__text text-center">Responde al instante, agenda citas en tu calendario y atiende consultas sin que tú tengas que estar pendiente del WhatsApp todo el día.</p>
         </div>
 
         <div class="card value-card reveal delay-2">
           <div class="card__icon"
             style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
             🎯</div>
-          <h3 class="card__title text-center">Agente comercial </h3>
-          <p class="card__text text-center">Pregunta, filtra y guía a cada prospecto según lo que necesita. Solo te
-            llegan los que ya están listos para comprar.</p>
+          <h3 class="card__title text-center">Agente comercial</h3>
+          <p class="card__text text-center">Califica cada lead haciéndole las preguntas correctas. Solo te pasa los prospectos con intención real de compra — tú cierras, el agente filtra.</p>
         </div>
 
         <div class="card value-card reveal delay-3">
@@ -208,8 +250,7 @@
             style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
             💬</div>
           <h3 class="card__title text-center">Soporte básico</h3>
-          <p class="card__text text-center">Resuelve dudas frecuentes de tus clientes en tiempo real. Sin esperas, sin
-            que tengas que responder lo mismo mil veces.</p>
+          <p class="card__text text-center">Resuelve las mismas 20 preguntas que recibes todos los días sin que nadie en tu equipo tenga que escribirlas de nuevo. El cliente queda atendido, tú libre.</p>
         </div>
 
         <div class="card value-card reveal delay-4">
@@ -217,8 +258,7 @@
             style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
             🔔</div>
           <h3 class="card__title text-center">Seguimiento automático</h3>
-          <p class="card__text text-center">El cliente agendó pero no apareció. El agente le recuerda, confirma y hace
-            seguimiento automáticamente.</p>
+          <p class="card__text text-center">El agente recuerda citas, confirma asistencia y hace seguimiento post-servicio. Menos no-shows, más clientes regresando solos.</p>
         </div>
 
         <div class="card value-card reveal delay-5">
@@ -226,17 +266,15 @@
             style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
             🎣</div>
           <h3 class="card__title text-center">Captación de leads</h3>
-          <p class="card__text text-center">Intercepta a quien llega desde tus anuncios o tu web, le hace las preguntas
-            correctas y te entrega solo los que realmente tienen intención de comprar.</p>
+          <p class="card__text text-center">Cuando alguien entra desde tu publicidad o tu web, el agente lo recibe, lo conversa y te entrega solo los que de verdad tienen ganas de comprar.</p>
         </div>
 
         <div class="card value-card reveal delay-5">
           <div class="card__icon"
             style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
             🧠</div>
-          <h3 class="card__title text-center">Base de Conocimiento</h3>
-          <p class="card__text text-center">Lo entrenamos con la información de tu negocio para que responda como tú lo
-            harías.</p>
+          <h3 class="card__title text-center">Entrenado en tu negocio</h3>
+          <p class="card__text text-center">Lo cargamos con tus servicios, precios, políticas y preguntas frecuentes. Responde como respondería alguien de tu equipo que sabe todo.</p>
         </div>
       </div>
     </div>
@@ -293,13 +331,13 @@
     <div class="container">
       <div class="cta-box reveal-scale">
         <div class="glow-orb glow-orb--violet" style="width: 300px; height: 300px; top: -30%; right: -10%;"></div>
-        <span class="section-header__tag" style="position: relative; z-index: 1;">Da el primer paso</span>
+        <span class="section-header__tag" style="position: relative; z-index: 1;">Sin compromiso</span>
         <h2 class="cta-box__title">
-          ¿Listo para tener<br>
-          <span class="text-gradient">tu primer agente?</span>
+          ¿Cuántos clientes<br>
+          <span class="text-gradient">estás perdiendo ahora mismo?</span>
         </h2>
         <p class="cta-box__text">
-          Empieza hoy a construir un negocio que funcione sin que todo dependa de ti.
+          Cuéntanos cómo funciona tu atención hoy y te mostramos exactamente cómo un agente puede cambiarla.
         </p>
         <a href="https://wa.me/573128861517" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
           Quiero mi agente
@@ -314,7 +352,7 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <img src="src/Logo.png" alt="Cynor Logo">
+          <img src="src/Logo.png" alt="Cynor Logo" width="200" height="96" loading="lazy">
           <p>Innovación inteligente para tu crecimiento. Te ayudamos a vender más y operar mejor con herramientas de
             automatización y asistentes virtuales.</p>
         </div>
@@ -382,7 +420,7 @@
     </svg>
   </button>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js" defer></script>
 </body>
 
 </html>

@@ -40,15 +40,40 @@
   <meta name="twitter:image" content="https://www.cynor.digital/src/Logo.png">
 
   <meta name="theme-color" content="#0A0A0A">
+    <link rel="preload" href="src/Logo.png" as="image" type="image/png">
   <link rel="icon" type="image/png" href="src/favicon.png?v=3">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Preconnect to font servers -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
+  <!-- Non-blocking async font load -->
+  <link rel="preload" as="style"
     href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap"
-    rel="stylesheet">
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap">
+  </noscript>
 
-  <link rel="stylesheet" href="css/styles.css">
+  <!-- Preload + async main stylesheet -->
+  <link rel="preload" href="css/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/styles.min.css"></noscript>
+  <!-- Critical CSS inline for above-the-fold -->
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#0A0A0A;color:#F5F5F5;overflow-x:hidden;min-height:100vh}
+    .loader{position:fixed;inset:0;background:#0A0A0A;z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease}
+    .loader.hidden{opacity:0;visibility:hidden}
+    .loader__icon{width:60px;height:60px;animation:lp 1.5s ease-in-out infinite}
+    @keyframes lp{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.15);opacity:.6}}
+    .navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;height:80px;display:flex;align-items:center;background:transparent;transition:all .3s cubic-bezier(.4,0,.2,1)}
+    .navbar__inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1200px;margin:0 auto;padding:0 2rem}
+    .navbar__logo img{height:56px;width:auto;filter:invert(1) brightness(2)}
+    .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:80px}
+    h1,h2,h3,h4{font-family:'Orbitron',sans-serif;font-weight:700;line-height:1.2}
+    h1{font-size:clamp(2rem,5vw,3.5rem)}
+  </style>
 </head>
 
 <body>
@@ -60,14 +85,14 @@
 
   <!-- Loader -->
   <div class="loader" id="loader">
-    <img src="src/Favoni.png" alt="Cynor Loading" class="loader__icon">
+    <img src="src/Favoni.png" alt="Cynor Loading" class="loader__icon" width="60" height="60">
   </div>
 
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <div class="navbar__inner">
       <a href="index.html" class="navbar__logo" aria-label="Cynor Home">
-        <img src="src/Logo.png" alt="Cynor Logo">
+        <img src="src/Logo.png" alt="Cynor Logo" width="709" height="339" loading="eager">
       </a>
       <div class="navbar__menu">
         <a href="index.html" class="navbar__link">Inicio</a>
@@ -96,15 +121,15 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">Inicio</a>
-    <div class="mobile-dropdown" style="text-align: center;">
-      <span
-        style="display:block; padding:10px; font-family:'Orbitron', sans-serif; font-size:1.5rem; font-weight:600; color:var(--text-secondary); cursor:default;">Servicios
-        ▼</span>
-      <div class="mobile-dropdown-content" style="display:flex; flex-direction:column; gap:15px; margin-top:10px;">
-        <a href="agentes-ia.html" style="font-size:1.1rem; color:var(--text-muted);">Agentes Inteligentes</a>
-        <a href="automatizacion.html" style="font-size:1.1rem; color:var(--text-muted);">Automatizaciones</a>
-        <a href="publicidad-digital.html" style="font-size:1.1rem; color:var(--text-muted);">Publicidad Digital</a>
-        <a href="desarrollo-web.html" style="font-size:1.1rem; color:var(--text-muted);">Desarrollo Web</a>
+    <div class="mobile-nav-dropdown" id="mobileServicesDropdown">
+      <button class="mobile-nav-dropdown__toggle" id="mobileServicesToggle">
+        Servicios <span class="mobile-nav-dropdown__arrow">▼</span>
+      </button>
+      <div class="mobile-nav-dropdown__content">
+        <a href="agentes-ia.html">Agentes Inteligentes</a>
+        <a href="automatizacion.html">Automatizaciones</a>
+        <a href="publicidad-digital.html">Publicidad Digital</a>
+        <a href="desarrollo-web.html">Desarrollo Web</a>
       </div>
     </div>
     <a href="quienes-somos.html">Quiénes Somos</a>
@@ -149,7 +174,7 @@
           </p>
         </div>
         <div class="reveal-right" style="display: flex; justify-content: center;">
-          <!-- Intelligence Dash Component -->
+          <!-- Intelligence Dash Component — Code Panel Variant -->
           <div class="intel-dash intel-dash--web reveal-scale">
             <div class="intel-dash__waves">
               <div class="intel-dash__wave"></div>
@@ -160,11 +185,50 @@
               <div class="intel-dash__header">
                 <div class="intel-dash__status">
                   <div class="intel-dash__pulse"></div>
-                  <span>System Active</span>
+                  <span>Build Live</span>
                 </div>
-                <div class="intel-dash__status" style="color: var(--color-violet);">
-                  <span>v2.0.4</span>
-                  <div class="intel-dash__visual-img"></div>
+                <div class="intel-dash__status" style="color: var(--color-sun-glare);">
+                  <span>Score 100/100</span>
+                </div>
+              </div>
+
+              <div class="dash-code">
+                <div class="dash-code__browser">
+                  <div class="dash-code__browser-bar">
+                    <div class="dash-code__browser-dot"></div>
+                    <div class="dash-code__browser-dot"></div>
+                    <div class="dash-code__browser-dot"></div>
+                    <div class="dash-code__browser-url"></div>
+                  </div>
+                  <div class="dash-code__preview">
+                    <div class="dash-code__preview-bar"></div>
+                    <div class="dash-code__preview-bar"></div>
+                    <div class="dash-code__preview-bar"></div>
+                    <div class="dash-code__preview-cta">CONVIERTE · VENDE · ESCALA</div>
+                  </div>
+                </div>
+
+                <div class="dash-code__lines">
+                  <div class="dash-code__line">
+                    <span class="dash-code__line-num">1</span>
+                    <span class="dash-code__line-content"><span class="kw">const</span> <span class="fn">landing</span> = <span class="str">"cynor.digital"</span></span>
+                  </div>
+                  <div class="dash-code__line">
+                    <span class="dash-code__line-num">2</span>
+                    <span class="dash-code__line-content"><span class="kw">let</span> <span class="fn">conv_rate</span> = <span class="val">8.4</span><span class="str">%</span></span>
+                  </div>
+                  <div class="dash-code__line">
+                    <span class="dash-code__line-num">3</span>
+                    <span class="dash-code__line-content"><span class="fn">deploy</span>(<span class="str">"production"</span>)</span>
+                  </div>
+                  <div class="dash-code__line">
+                    <span class="dash-code__line-num">4</span>
+                    <span class="dash-code__line-content"><span class="kw">→</span> <span class="str">Score: <span class="val">100</span>/100 ✓</span></span>
+                  </div>
+                  <div class="dash-code__line">
+                    <span class="dash-code__line-num">5</span>
+                    <span class="dash-code__line-content"><span class="dash-code__cursor"></span></span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -188,8 +252,7 @@
             style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
             🎯</div>
           <h3 class="card__title text-center">Copy Científico</h3>
-          <p class="card__text text-center">No llegamos con soluciones genéricas. Cada sistema que construimos está
-            diseñado específicamente para tu operación.</p>
+          <p class="card__text text-center">Cada palabra está pensada para mover al visitante hacia la acción. No adornamos, convencemos. Estructura de embudo desde el primer scroll.</p>
         </div>
 
         <div class="card value-card reveal delay-2">
@@ -197,8 +260,7 @@
             style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
             🔬</div>
           <h3 class="card__title text-center">Performance Inquebrantable</h3>
-          <p class="card__text text-center">Usamos las tecnologías más avanzadas de IA para crear soluciones que
-            realmente transforman la manera en que operas.</p>
+          <p class="card__text text-center">Velocidad de carga óptima para pasar el Core Web Vitals de Google. Una página lenta espanta al usuario antes de que lea una sola línea.</p>
         </div>
 
         <div class="card value-card reveal delay-3">
@@ -206,8 +268,7 @@
             style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
             🤝</div>
           <h3 class="card__title text-center">Diseño Responsive Premium</h3>
-          <p class="card__text text-center">Tu éxito es nuestro éxito. Nos involucramos profundamente en entender tu
-            negocio para entregar resultados reales.</p>
+          <p class="card__text text-center">Más del 70% de tus visitas llegan desde el celular. Tu página se ve y funciona igual de bien en cualquier pantalla.</p>
         </div>
 
         <div class="card value-card reveal delay-4">
@@ -215,8 +276,7 @@
             style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
             📈</div>
           <h3 class="card__title text-center">Optimización SEO Técnica</h3>
-          <p class="card__text text-center">Diseñamos sistemas que crecen contigo. Lo que construimos hoy debe funcionar
-            cuando tu negocio sea 10x más grande.</p>
+          <p class="card__text text-center">Configuramos la estructura para que Google te encuentre y te muestre. Tráfico orgánico que llega solo, mes a mes, sin pagar por cada clic.</p>
         </div>
 
         <div class="card value-card reveal delay-5">
@@ -224,8 +284,7 @@
             style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
             🛡️</div>
           <h3 class="card__title text-center">Seguridad Robusta</h3>
-          <p class="card__text text-center">Tus datos son sagrados. Operamos con los más altos estándares de seguridad y
-            privacidad en cada proyecto.</p>
+          <p class="card__text text-center">SSL, hosting confiable y protección ante caías o picos de tráfico. Tu sitio está vivo cuando más lo necesitas.</p>
         </div>
 
         <div class="card value-card reveal delay-5">
@@ -233,8 +292,7 @@
             style="margin: 0 auto var(--space-lg); width: 72px; height: 72px; font-size: 2rem; border-radius: var(--radius-lg);">
             ⚙️</div>
           <h3 class="card__title text-center">Conectividad a tu Stack</h3>
-          <p class="card__text text-center">Cada proceso que automatizamos libera tiempo real en tu operación. Menos
-            tareas manuales, más enfoque estratégico.</p>
+          <p class="card__text text-center">La web se integra con tu CRM, tu agente de IA, tu pixel de publicidad y tus formularios. Todo rastreable, todo conectado.</p>
         </div>
       </div>
     </div>
@@ -288,17 +346,16 @@
     <div class="container">
       <div class="cta-box reveal-scale">
         <div class="glow-orb glow-orb--violet" style="width: 300px; height: 300px; top: -30%; right: -10%;"></div>
-        <span class="section-header__tag" style="position: relative; z-index: 1;">Empieza hoy mismo</span>
+        <span class="section-header__tag" style="position: relative; z-index: 1;">Sin compromiso</span>
         <h2 class="cta-box__title">
-          Haz que tu negocio<br>
-          <span class="text-gradient">despegue en piloto automático</span>
+          ¿Tu web actual<br>
+          <span class="text-gradient">está trayendo clientes o solo existía?</span>
         </h2>
         <p class="cta-box__text">
-          Cada día que pasa sin la estructura correcta, pierdes tiempo y dejas dinero sobre la mesa. Toma el control y
-          agiliza tus procesos ahora.
+          Cuéntanos qué tienes hoy y te decimos cómo convertirlo en un activo de ventas real.
         </p>
         <a href="https://wa.me/573128861517" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
-          Empezar ahora
+          Ver cómo funcionaría en mi negocio
           <span class="btn__arrow">→</span>
         </a>
       </div>
@@ -310,7 +367,7 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <img src="src/Logo.png" alt="Cynor Logo">
+          <img src="src/Logo.png" alt="Cynor Logo" width="200" height="96" loading="lazy">
           <p>Innovación inteligente para tu crecimiento. Te ayudamos a vender más y operar mejor con herramientas de
             automatización y asistentes virtuales.</p>
         </div>
@@ -378,7 +435,7 @@
     </svg>
   </button>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js" defer></script>
 </body>
 
 </html>

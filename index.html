@@ -42,6 +42,7 @@
   <meta name="twitter:image" content="https://www.cynor.digital/src/Logo.png">
 
   <meta name="theme-color" content="#0A0A0A">
+    <link rel="preload" href="src/Logo.png" as="image" type="image/png">
   <link rel="icon" type="image/png" href="src/favicon.png?v=3">
 
   <!-- JSON-LD -->
@@ -76,14 +77,38 @@
   </script>
 
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!-- Preconnect to font servers -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
+  <!-- Non-blocking async font load -->
+  <link rel="preload" as="style"
     href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap"
-    rel="stylesheet">
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap">
+  </noscript>
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css">
+  <!-- Preload + async main stylesheet -->
+  <link rel="preload" href="css/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/styles.min.css"></noscript>
+  <!-- Critical CSS inline for above-the-fold -->
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#0A0A0A;color:#F5F5F5;overflow-x:hidden;min-height:100vh}
+    .loader{position:fixed;inset:0;background:#0A0A0A;z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease}
+    .loader.hidden{opacity:0;visibility:hidden}
+    .loader__icon{width:60px;height:60px;animation:lp 1.5s ease-in-out infinite}
+    @keyframes lp{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.15);opacity:.6}}
+    .navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;height:80px;display:flex;align-items:center;background:transparent;transition:all .3s cubic-bezier(.4,0,.2,1)}
+    .navbar__inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1200px;margin:0 auto;padding:0 2rem}
+    .navbar__logo img{height:56px;width:auto;filter:invert(1) brightness(2)}
+    .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:80px}
+    h1,h2,h3,h4{font-family:'Orbitron',sans-serif;font-weight:700;line-height:1.2}
+    h1{font-size:clamp(2rem,5vw,3.5rem)}
+  </style>
 </head>
 
 <body>
@@ -95,14 +120,14 @@
 
   <!-- Loader -->
   <div class="loader" id="loader">
-    <img src="src/Favoni.png" alt="Cynor Loading" class="loader__icon">
+    <img src="src/Favoni.png" alt="Cynor Loading" class="loader__icon" width="60" height="60">
   </div>
 
   <!-- Navbar -->
   <nav class="navbar" id="navbar">
     <div class="navbar__inner">
       <a href="index.html" class="navbar__logo" aria-label="Cynor Home">
-        <img src="src/Logo.png" alt="Cynor Logo">
+        <img src="src/Logo.png" alt="Cynor Logo" width="709" height="339" loading="eager">
       </a>
 
       <div class="navbar__menu">
@@ -135,15 +160,15 @@
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">Inicio</a>
-    <div class="mobile-dropdown" style="text-align: center;">
-      <span
-        style="display:block; padding:10px; font-family:'Orbitron', sans-serif; font-size:1.5rem; font-weight:600; color:var(--text-secondary); cursor:default;">Servicios
-        ▼</span>
-      <div class="mobile-dropdown-content" style="display:flex; flex-direction:column; gap:15px; margin-top:10px;">
-        <a href="agentes-ia.html" style="font-size:1.1rem; color:var(--text-muted);">Agentes Inteligentes</a>
-        <a href="automatizacion.html" style="font-size:1.1rem; color:var(--text-muted);">Automatizaciones</a>
-        <a href="publicidad-digital.html" style="font-size:1.1rem; color:var(--text-muted);">Publicidad Digital</a>
-        <a href="desarrollo-web.html" style="font-size:1.1rem; color:var(--text-muted);">Desarrollo Web</a>
+    <div class="mobile-nav-dropdown" id="mobileServicesDropdown">
+      <button class="mobile-nav-dropdown__toggle" id="mobileServicesToggle">
+        Servicios <span class="mobile-nav-dropdown__arrow">▼</span>
+      </button>
+      <div class="mobile-nav-dropdown__content">
+        <a href="agentes-ia.html">Agentes Inteligentes</a>
+        <a href="automatizacion.html">Automatizaciones</a>
+        <a href="publicidad-digital.html">Publicidad Digital</a>
+        <a href="desarrollo-web.html">Desarrollo Web</a>
       </div>
     </div>
     <a href="quienes-somos.html">Quiénes Somos</a>
@@ -167,7 +192,7 @@
     <div class="container">
       <div class="hero__content">
         <div class="hero__badge reveal">
-          <span>IA · Automatización · Marketing Digital</span>
+          <span>Más clientes · Menos trabajo manual</span>
         </div>
 
         <h1 class="hero__title reveal delay-1">
@@ -268,8 +293,7 @@
         <div class="card card--animated reveal delay-1">
           <div class="card__icon">🤖</div>
           <h3 class="card__title">Tu asistente virtual</h3>
-          <p class="card__text" style="margin-bottom: var(--space-lg);">Implementamos agentes de que responde mensajes,
-            agenda citas y atiende clientes a cualquier hora. Personalizados con tus servicios.</p>
+          <p class="card__text" style="margin-bottom: var(--space-lg);">Responde mensajes, agenda citas y atiende clientes a cualquier hora, incluso cuando tú no puedes. Lo entrenamos con tu negocio.</p>
           <button class="btn btn--service" onclick="window.location.href='agentes-ia.html'">Saber
             más</button>
         </div>
@@ -277,10 +301,7 @@
         <div class="card card--animated reveal delay-2">
           <div class="card__icon">⚡</div>
           <h3 class="card__title">Menos tareas manuales</h3>
-          <p class="card__text" style="margin-bottom: var(--space-lg);">
-            Los seguimientos, recordatorios y tareas repetitivas que te quitan tiempo, los automatizamos para que te
-            liberes de cargas innecesarias.
-          </p>
+          <p class="card__text" style="margin-bottom: var(--space-lg);">Cobros, recordatorios, seguimientos y onboarding — todo lo que hoy alguien hace a mano, lo hacemos automático para que tu equipo se enfoque en vender.</p>
           <button class="btn btn--service" onclick="window.location.href='automatizacion.html'">Saber
             más</button>
         </div>
@@ -288,9 +309,7 @@
         <div class="card card--animated reveal delay-3">
           <div class="card__icon">🎯</div>
           <h3 class="card__title">Publicidad Digital</h3>
-          <p class="card__text" style="margin-bottom: var(--space-lg);">Manejamos tu publicidad en Meta (Instagram&
-            Facebook) y Google enfocándonos en la calidad de los leads y optimización continúa para mejores resultados.
-          </p>
+          <p class="card__text" style="margin-bottom: var(--space-lg);">Gestionamos tus campañas en Meta y Google con foco en leads reales, no en likes. Cada peso invertido tiene un objetivo claro: conseguirte clientes.</p>
           <button class="btn btn--service" onclick="window.location.href='publicidad-digital.html'">Saber
             más</button>
         </div>
@@ -298,8 +317,7 @@
         <div class="card card--animated reveal delay-4">
           <div class="card__icon">💻</div>
           <h3 class="card__title">Páginas web que convierten</h3>
-          <p class="card__text" style="margin-bottom: var(--space-lg);">Desarrollamos páginas web construidas sobre tu
-            oferta y un embudo claro, para que cada visita tenga un camino hacia la conversión.</p>
+          <p class="card__text" style="margin-bottom: var(--space-lg);">Una página bonita no alcanza. La tuya debe llevar al visitante de "¿quiénes son?" a "quiero esto" en menos de 5 segundos.</p>
           <button class="btn btn--service" onclick="window.location.href='desarrollo-web.html'">Saber
             más</button>
         </div>
@@ -325,8 +343,7 @@
             🧩
           </div>
           <h3 class="card__title text-center">Todo conectado</h3>
-          <p class="card__text text-center">IA, automatizaciones, publicidad y web trabajando juntos. Todo conectado,
-            todo con el mismo objetivo.</p>
+          <p class="card__text text-center">Tu agente de IA, tu publicidad y tu web trabajan juntos como un solo sistema. Tráfico → atención → conversión, sin fricciones.</p>
         </div>
 
         <div class="card value-card reveal delay-2">
@@ -334,9 +351,8 @@
             style="margin: 0 auto var(--space-lg); font-size: 2rem; width: 72px; height: 72px; border-radius: var(--radius-lg);">
             🗣️
           </div>
-          <h3 class="card__title text-center">Construido para escalar</h3>
-          <p class="card__text text-center">Diseñamos todo pensando en el crecimiento. Lo que implementamos hoy aguanta
-            cuando tu negocio escale.</p>
+          <h3 class="card__title text-center">Pensado para crecer</h3>
+          <p class="card__text text-center">Lo que implementamos hoy aguanta cuando tu negocio crezca. No tienes que empezar de cero cada vez que subes un nivel.</p>
         </div>
 
         <div class="card value-card reveal delay-3">
@@ -344,9 +360,8 @@
             style="margin: 0 auto var(--space-lg); font-size: 2rem; width: 72px; height: 72px; border-radius: var(--radius-lg);">
             ⚙️
           </div>
-          <h3 class="card__title text-center">Personalización</h3>
-          <p class="card__text text-center">Cada negocio es diferente. Lo que implementamos para ti no es una plantilla,
-            está construido según cómo funciona tu operación.</p>
+          <h3 class="card__title text-center">Hecho a tu medida</h3>
+          <p class="card__text text-center">No vendemos plantillas ni soluciones genéricas. Nos sentamos a entender tu operación y construimos exactamente lo que necesitas.</p>
         </div>
       </div>
     </div>
@@ -533,13 +548,13 @@
         <div class="glow-orb glow-orb--violet" style="width: 300px; height: 300px; top: -30%; right: -10%;"></div>
         <div class="glow-orb glow-orb--sun" style="width: 200px; height: 200px; bottom: -20%; left: -5%;"></div>
 
-        <span class="section-header__tag" style="position: relative; z-index: 1;">Da el primer paso</span>
+        <span class="section-header__tag" style="position: relative; z-index: 1;">Sin compromiso</span>
         <h2 class="cta-box__title">
-          ¿Por dónde<br>
-          <span class="text-gradient">empezamos?</span>
+          Hablemos 30 minutos<br>
+          <span class="text-gradient">y te digo si puedo ayudarte.</span>
         </h2>
         <p class="cta-box__text">
-          Una conversación de 30 minutos es suficiente para saber si podemos ayudarte y por dónde empezar.
+          Una llamada corta es suficiente para ver qué tiene sentido para tu negocio. Sin tecnicismos, sin presión.
         </p>
         <a href="https://wa.me/573128861517" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
           Agenda tu asesoría gratuita
@@ -554,7 +569,7 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <img src="src/Logo.png" alt="Cynor Logo">
+          <img src="src/Logo.png" alt="Cynor Logo" width="200" height="96" loading="lazy">
           <p>Innovación inteligente para tu crecimiento. Te ayudamos a vender más y operar mejor con herramientas de
             automatización y asistentes virtuales.</p>
         </div>
@@ -629,7 +644,7 @@
   </button>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.min.js" defer></script>
 </body>
 
 </html>
