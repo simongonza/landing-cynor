@@ -1955,20 +1955,20 @@ textarea.form-control {
   display: none;
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(10, 10, 10, 0.97);
+  background: rgba(10, 10, 10, 0.98);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  z-index: 999;
+  z-index: 1000;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: var(--space-lg);
-  opacity: 0;
+  transform: translateX(100%);
   pointer-events: none;
-  transition: opacity var(--transition-base);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   padding: var(--space-4xl) var(--space-xl);
   overflow-y: auto;
 }
@@ -1980,7 +1980,7 @@ textarea.form-control {
 }
 
 .mobile-menu.active {
-  opacity: 1;
+  transform: translateX(0);
   pointer-events: all;
 }
 
