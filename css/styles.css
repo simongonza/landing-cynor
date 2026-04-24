@@ -1956,30 +1956,39 @@ textarea.form-control {
   position: fixed;
   top: 0;
   right: 0;
+  bottom: 0;
   width: 100%;
   height: 100vh;
+  height: -webkit-fill-available;
+  height: 100dvh;
   background: rgba(10, 10, 10, 0.98);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  z-index: 1000;
+  z-index: 999;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: var(--space-lg);
+  -webkit-transform: translateX(100%);
   transform: translateX(100%);
   pointer-events: none;
+  -webkit-transition: -webkit-transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   padding: var(--space-4xl) var(--space-xl);
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 @media (max-width: 768px) {
   .mobile-menu {
     display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
   }
 }
 
 .mobile-menu.active {
+  -webkit-transform: translateX(0);
   transform: translateX(0);
   pointer-events: all;
 }
