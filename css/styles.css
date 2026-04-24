@@ -1973,6 +1973,12 @@ textarea.form-control {
   overflow-y: auto;
 }
 
+@media (max-width: 768px) {
+  .mobile-menu {
+    display: flex;
+  }
+}
+
 .mobile-menu.active {
   opacity: 1;
   pointer-events: all;
@@ -2073,17 +2079,7 @@ textarea.form-control {
   transform: translateX(6px);
 }
 
-content: '';
-position: absolute;
-bottom: 10px;
-right: 10px;
-width: 4px;
-height: 4px;
-border-radius: 50%;
-background: var(--color-sun-glare);
-box-shadow: 0 0 10px var(--color-sun-glare);
-animation: dash-pulse 2s infinite;
-}
+
 
 /* Reveal tweaks for the dash */
 .intel-dash.visible {
