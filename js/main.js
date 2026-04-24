@@ -75,12 +75,23 @@ function initMobileMenu() {
     }
   });
 
-  // Close menu when clicking a link
+  // Mobile services accordion toggle
+  const servicesToggle = document.getElementById('mobileServicesToggle');
+  const servicesDropdown = document.getElementById('mobileServicesDropdown');
+  if (servicesToggle && servicesDropdown) {
+    servicesToggle.addEventListener('click', () => {
+      servicesDropdown.classList.toggle('open');
+    });
+  }
+
+  // Close menu when clicking any link (including submenu links)
   mobileMenu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       hamburger.classList.remove('active');
       mobileMenu.classList.remove('active');
       document.body.style.overflow = '';
+      // Also collapse services dropdown
+      if (servicesDropdown) servicesDropdown.classList.remove('open');
     });
   });
 
@@ -93,6 +104,7 @@ function initMobileMenu() {
     }
   });
 }
+
 
 /* ---------- Scroll Reveal Animations ---------- */
 function initScrollReveal() {

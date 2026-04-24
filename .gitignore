@@ -1,8 +1,20 @@
+# Entorno virtual (Python)
 venv/
 bin/
 include/
 lib/
 __pycache__/
 *.pyc
+
+# Sistema operativo
 .DS_Store
+
+# Logs
 *.log
+
+# Scripts internos (NO producción)
+scripts/
+*.py
+
+# Archivos de prueba
+test.log
