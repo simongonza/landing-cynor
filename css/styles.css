@@ -389,7 +389,7 @@ p {
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  z-index: 1001;
+  z-index: 1100; /* Increased to be above mobile-menu (1050) */
   padding: 8px;
   background: rgba(10, 10, 10, 0.4);
   border-radius: var(--radius-sm);
@@ -1964,7 +1964,7 @@ textarea.form-control {
   background: rgba(10, 10, 10, 0.98);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  z-index: 999;
+  z-index: 1050; /* Increased to be above navbar (1000) but below hamburger (1001? no wait) */
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -1988,9 +1988,12 @@ textarea.form-control {
 }
 
 .mobile-menu.active {
+  display: flex !important;
   -webkit-transform: translateX(0);
   transform: translateX(0);
   pointer-events: all;
+  visibility: visible;
+  opacity: 1;
 }
 
 .mobile-menu>a {
