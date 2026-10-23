@@ -1,667 +1,502 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
   <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push({
-        'gtm.start':
-          new Date().getTime(), event: 'gtm.js'
-      }); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-WN2KKRZQ');</script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-WN2KKRZQ');</script>
   <!-- End Google Tag Manager -->
-
-  <meta name="facebook-domain-verification" content="vpwczg6mn0sy7wcytmr8ap039q7jqj" />
   <meta charset="UTF-8">
+  <script>document.documentElement.classList.add('js');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Empresa de tecnología aplicada a negocios. Integramos inteligencia artificial, automatización de procesos y marketing digital para optimizar operaciones y ventas.">
-  <meta name="keywords"
-    content="automatización empresarial, inteligencia artificial para negocios, marketing digital performance, desarrollo web orientado a conversión, automatización corporativa">
-  <meta name="author" content="Cynor">
-  <title>Cynor | Inteligencia Artificial y Automatización Empresarial</title>
-
+  <meta name="facebook-domain-verification" content="vpwczg6mn0sy7wcytmr8ap039q7jqj">
+  <title>Cynor | Agentes IA, automatización y marketing en Colombia</title>
+  <meta name="description" content="Agentes IA que atienden y agendan por WhatsApp para consultorios, automatizaciones que eliminan el trabajo manual y pauta que trae clientes. Diagnóstico gratis.">
   <link rel="canonical" href="https://www.cynor.digital/">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Cynor | Inteligencia Artificial y Automatización Empresarial">
-  <meta property="og:description"
-    content="Sistemas de IA, automatización y marketing digital para empresas que desean escalar sin trabajo manual.">
-  <meta property="og:image" content="https://www.cynor.digital/src/Logo.png">
+  
+  <meta property="og:title" content="Cynor | Agentes IA, automatización y marketing en Colombia">
+  <meta property="og:description" content="Agentes IA que atienden y agendan por WhatsApp para consultorios, automatizaciones que eliminan el trabajo manual y pauta que trae clientes. Diagnóstico gratis.">
+  <meta property="og:image" content="https://www.cynor.digital/src/og-cynor.png">
   <meta property="og:url" content="https://www.cynor.digital/">
   <meta property="og:type" content="website">
-
-  <!-- Twitter Cards -->
+  <meta property="og:locale" content="es_CO">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Cynor | Inteligencia Artificial y Automatización Empresarial">
-  <meta name="twitter:description"
-    content="Sistemas de IA, automatización y marketing digital para empresas que desean escalar sin trabajo manual.">
-  <meta name="twitter:image" content="https://www.cynor.digital/src/Logo.png">
+  <meta name="twitter:title" content="Cynor | Agentes IA, automatización y marketing en Colombia">
+  <meta name="twitter:description" content="Agentes IA que atienden y agendan por WhatsApp para consultorios, automatizaciones que eliminan el trabajo manual y pauta que trae clientes. Diagnóstico gratis.">
+  <meta name="twitter:image" content="https://www.cynor.digital/src/og-cynor.png">
+  <meta name="theme-color" content="#F2F0EA">
+  <link rel="icon" type="image/png" href="/src/favicon.png?v=3">
 
-  <meta name="theme-color" content="#0A0A0A">
-    <link rel="preload" href="src/Logo.png" as="image" type="image/png">
-  <link rel="icon" type="image/png" href="src/favicon.png?v=3">
+  <link rel="preload" href="/fonts/space-age.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="/fonts/source-sans-3.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="/css/cynor.css?v=1c4d6b7770">
 
-  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://www.cynor.digital/#website",
-        "url": "https://www.cynor.digital/",
-        "name": "Cynor",
-        "description": "Te ayudamos a automatizar tus procesos y crecer con Inteligencia Artificial en Colombia.",
-        "publisher": {
-          "@id": "https://www.cynor.digital/#organization"
-        }
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.cynor.digital/#website",
+      "url": "https://www.cynor.digital/",
+      "name": "Cynor",
+      "inLanguage": "es-CO"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.cynor.digital/#organization",
+      "name": "Cynor",
+      "url": "https://www.cynor.digital/",
+      "logo": "https://www.cynor.digital/src/Logo.png",
+      "slogan": "Innovation that thinks in data.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Medellín",
+        "addressCountry": "CO"
       },
-      {
-        "@type": "Organization",
-        "@id": "https://www.cynor.digital/#organization",
-        "name": "Cynor",
-        "url": "https://www.cynor.digital/",
-        "logo": "https://www.cynor.digital/src/Logo.png",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "email": "Cynorsolutionsgroup@gmail.com",
-          "contactType": "customer support"
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+57 312 886 1517",
+        "email": "cynorsolutionsgroup@gmail.com",
+        "contactType": "customer service",
+        "availableLanguage": "es"
+      },
+      "sameAs": [
+        "https://www.instagram.com/cynor_solutions"
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.cynor.digital/#service",
+      "name": "Cynor",
+      "url": "https://www.cynor.digital/",
+      "image": "https://www.cynor.digital/src/og-cynor.png",
+      "telephone": "+57 312 886 1517",
+      "areaServed": "CO",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Medellín",
+        "addressRegion": "Antioquia",
+        "addressCountry": "CO"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "4"
+      },
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Agentes IA para consultorios y clínicas"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Automatización de procesos para empresas"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Publicidad digital y páginas web"
+          }
         }
-      }
-    ]
-  }
+      ]
+    }
+  ]
+}
   </script>
-
-  <!-- Google Fonts -->
-  <!-- Preconnect to font servers -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Non-blocking async font load with font-display=swap to prevent FOUT CLS -->
-  <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&family=Orbitron:wght@700;800&family=Share+Tech+Mono&display=swap"
-    onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&family=Orbitron:wght@700;800&family=Share+Tech+Mono&display=swap">
-  </noscript>
-
-  <!-- Stylesheet -->
-  <!-- Preload + async main stylesheet -->
-  <link rel="preload" href="css/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="css/styles.min.css"></noscript>
-  <!-- Critical CSS inline for above-the-fold -->
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-    body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#0A0A0A;color:#F5F5F5;overflow-x:hidden;min-height:100vh}
-    .loader{position:fixed;inset:0;background:#0A0A0A;z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity .6s ease,visibility .6s ease}
-    .loader.hidden{opacity:0;visibility:hidden}
-    .loader__icon{width:60px;height:60px;animation:lp 1.5s ease-in-out infinite}
-    @keyframes lp{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.15);opacity:.6}}
-    /* Navbar: explicit logo sizing prevents CLS before external CSS loads */
-    .navbar{position:fixed;top:0;left:0;width:100%;z-index:9998;height:80px;display:flex;align-items:center;background:transparent;transition:all .3s cubic-bezier(.4,0,.2,1)}
-    .navbar__inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1200px;margin:0 auto;padding:0 2rem}
-    .navbar__logo img{height:56px;width:auto;aspect-ratio:709/339;filter:invert(1) brightness(2)}
-    /* Hero: min-height reserves space before JS runs; contain prevents reflows */
-    .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:80px}
-    .hero__content{max-width:750px;min-height:420px;position:relative;z-index:2}
-    h1,h2,h3,h4{font-family:'Orbitron',sans-serif;font-weight:700;line-height:1.2}
-    h1{font-size:clamp(2rem,5vw,3.5rem)}
-    /* ── Mobile menu critical CSS (prevents FOUC on async stylesheet) ── */
-    .mobile-menu{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;position:fixed;top:0;left:0;right:0;bottom:0;width:100%;min-height:100vh;background:rgba(10,10,10,.98);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);z-index:9000;-webkit-transform:translateX(100%);transform:translateX(100%);visibility:hidden;opacity:0;pointer-events:none;-webkit-transition:-webkit-transform .4s cubic-bezier(.4,0,.2,1),opacity .4s ease,visibility .4s ease;transition:transform .4s cubic-bezier(.4,0,.2,1),opacity .4s ease,visibility .4s ease;padding:80px 24px 24px;overflow-y:auto;-webkit-overflow-scrolling:touch}
-    @media(min-width:769px){.mobile-menu{display:none!important}}
-    .mobile-menu.active{-webkit-transform:translateX(0)!important;transform:translateX(0)!important;visibility:visible!important;opacity:1!important;pointer-events:all!important}
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:9100;padding:8px;background:rgba(10,10,10,.4);border-radius:4px;border:none;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
-    @media(max-width:768px){.hamburger{display:flex}}
-    .hamburger span{display:block;width:24px;height:2px;background:#F5F5F5;transition:all .3s cubic-bezier(.4,0,.2,1);border-radius:2px}
-    .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
-    .hamburger.active span:nth-child(2){opacity:0}
-    .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-  </style>
 </head>
+<body data-page="inicio">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WN2KKRZQ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-<body>
-
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WN2KKRZQ" height="0" width="0"
-      style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
-  <!-- Loader -->
-  <div class="loader" id="loader">
-    <img src="src/Favoni.png" alt="Cynor Loading" class="loader__icon" width="60" height="60">
-  </div>
-
-  <!-- Navbar -->
-  <nav class="navbar" id="navbar">
-    <div class="navbar__inner">
-    <a href="index.html" class="navbar__logo" aria-label="Cynor Home">
-        <span style="position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;">Cynor Inicio</span>
-        <img src="src/Logo.png" alt="Cynor Logo" width="709" height="339" loading="eager" fetchpriority="high"
-          decoding="async">
-      </a>
-
-      <div class="navbar__menu">
-        <a href="index.html" class="navbar__link active">Inicio</a>
-        <div class="navbar__dropdown">
-          <a href="#" class="navbar__link">Servicios ▾</a>
-          <div class="dropdown-content">
-            <a href="agentes-ia.html">Agentes IA</a>
-            <a href="automatizacion.html">Automatizaciones</a>
-            <a href="publicidad-digital.html">Publicidad Digital</a>
-            <a href="desarrollo-web.html">Desarrollo Web</a>
-          </div>
-        </div>
-        <a href="quienes-somos.html" class="navbar__link">Quiénes Somos</a>
-        <a href="blog.html" class="navbar__link">Blog</a>
-
-        <a href="contacto.html" class="navbar__link">Contacto</a>
-        <a href="https://wa.me/573128861517" class="navbar__cta" target="_blank" rel="noopener noreferrer">Hablemos
-          →</a>
-      </div>
-
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="/" aria-label="Cynor, inicio">CYNOR</a>
+      <nav class="nav__links" aria-label="Principal">
+        <a href="/salud" data-nav="salud">Salud</a>
+        <a href="/automatizaciones" data-nav="automatizaciones">Automatizaciones</a>
+        <a href="/marketing" data-nav="marketing">Marketing</a>
+        <a href="/blog" data-nav="blog">Blog</a>
+        <a href="/contacto" data-nav="contacto">Contacto</a>
+      </nav>
+      <a class="btn btn--ink btn--sm nav__cta" href="/#diagnostico" data-track="cta_diagnostico_nav">Diagnóstico gratis</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span>
       </button>
     </div>
-  </nav>
+  </header>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menú de navegación">
-    <a href="index.html">Inicio</a>
-    <div class="mobile-nav-dropdown" id="mobileServicesDropdown">
-      <button class="mobile-nav-dropdown__toggle" id="mobileServicesToggle" aria-expanded="false">
-        Servicios <span class="mobile-nav-dropdown__arrow">▼</span>
-      </button>
-      <div class="mobile-nav-dropdown__content">
-        <a href="agentes-ia.html">Agentes IA</a>
-        <a href="automatizacion.html">Automatizaciones</a>
-        <a href="publicidad-digital.html">Publicidad Digital</a>
-        <a href="desarrollo-web.html">Desarrollo Web</a>
-      </div>
-    </div>
-    <a href="quienes-somos.html">Quiénes Somos</a>
-    <a href="blog.html">Blog</a>
-    <a href="contacto.html">Contacto</a>
-    <a href="https://wa.me/573128861517" class="btn btn--primary" target="_blank" rel="noopener noreferrer"
-      style="margin-top:8px;padding:12px 28px;font-size:1rem;">Hablemos →</a>
+  <div class="mobile-menu" id="mobileMenu" hidden>
+    <nav aria-label="Menú móvil">
+      <a href="/salud">Salud</a>
+      <a href="/automatizaciones">Automatizaciones</a>
+      <a href="/marketing">Marketing</a>
+      <a href="/blog">Blog</a>
+      <a href="/contacto">Contacto</a>
+    </nav>
+    <a class="btn btn--lime" href="/#diagnostico">Diagnóstico gratis <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
   </div>
 
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="hero__bg"></div>
-    <div class="hero__grid-overlay"></div>
-    <div class="hero__particles" id="particles"></div>
-
-    <!-- Decorative glow orbs -->
-    <div class="glow-orb glow-orb--violet" style="width: 400px; height: 400px; top: 10%; left: -5%;"></div>
-    <div class="glow-orb glow-orb--sun" style="width: 300px; height: 300px; bottom: 10%; right: -5%;"></div>
-
-    <div class="container">
-      <div class="hero__content">
-        <!-- CLS FIX: Hero is above-the-fold. Remove .reveal from these elements.
-             Reveal animations (opacity:0 → visible) on ATF content cause high CLS.
-             Below-the-fold sections keep .reveal for smooth scroll-in effect. -->
-        <div class="hero__badge">
-          <span>Más clientes · Menos trabajo manual</span>
+  <main id="contenido">
+<section class="hero" data-parallax>
+      <div class="container hero__grid">
+        <div class="hero-in">
+          <p class="hero__tag mono">Innovation that thinks in data.</p>
+          <h1 class="h1 hero__title">
+            <span class="line">Tu negocio</span>
+            <span class="line"><span class="rotator" data-rotator aria-hidden="true"><span class="rotator__word is-active">atiende</span><span class="rotator__word">agenda</span><span class="rotator__word">cotiza</span><span class="rotator__word">cobra</span><span class="rotator__word">vende</span></span> solo.</span>
+            <span class="sr-only">Tu negocio atiende, agenda, cotiza, cobra y vende solo.</span>
+          </h1>
+          <p class="lead">Agentes IA para consultorios, automatizaciones y pauta para empresas. Menos trabajo manual, más clientes atendidos.</p>
+          <div class="btn-row">
+            <a class="btn btn--ink" href="#diagnostico" data-track="cta_diagnostico_hero">Diagnóstico gratis <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+            <a class="btn btn--ghost" href="#calculadora">Calcular lo que pierdo</a>
+          </div>
         </div>
+        <div class="orb orb-in" aria-hidden="true">
+          <span class="chip orb__chip"><i class="ph-fill ph-lightning"></i>Responde en segundos</span>
+          <span class="chip orb__chip"><i class="ph-fill ph-calendar-check"></i>Agenda 24/7</span>
+          <span class="chip orb__chip"><i class="ph-fill ph-chart-line-up"></i>Más clientes</span>
+          <div class="orb__disc">
+            <svg class="orb__ring" viewBox="0 0 300 300">
+              <defs><path id="ring-home" d="M150,150 m-128,0 a128,128 0 1,1 256,0 a128,128 0 1,1 -256,0"/></defs>
+              <text><textPath href="#ring-home" textLength="800" lengthAdjust="spacing">INNOVATION THAT THINKS IN DATA. INNOVATION THAT THINKS IN DATA. </textPath></text>
+            </svg>
+            <div class="smile"></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <h1 class="hero__title">
-          Trabajas todo el día,<br>
-          <span class="text-gradient">y tu negocio sigue dependiendo de ti para todo</span>
-        </h1>
+    <div class="marquee-wrap">
+    <div class="marquee" aria-label="Trabajamos con">
+      <div class="marquee__track">
+        <div class="marquee__group">
+          <span class="marquee__item">Consultorios médicos</span><span class="marquee__item">Odontología</span><span class="marquee__item">Medicina estética</span><span class="marquee__item">Psicología</span><span class="marquee__item">Fisioterapia</span><span class="marquee__item">Ventanerías</span><span class="marquee__item">Inmobiliarias</span><span class="marquee__item">Comercio</span><span class="marquee__item">Empresas de servicios</span>
+        </div>
+        <div class="marquee__group" aria-hidden="true">
+          <span class="marquee__item">Consultorios médicos</span><span class="marquee__item">Odontología</span><span class="marquee__item">Medicina estética</span><span class="marquee__item">Psicología</span><span class="marquee__item">Fisioterapia</span><span class="marquee__item">Ventanerías</span><span class="marquee__item">Inmobiliarias</span><span class="marquee__item">Comercio</span><span class="marquee__item">Empresas de servicios</span>
+        </div>
+      </div>
+    </div>
+    </div>
 
-        <p class="hero__subtitle">
-          Tu negocio puede funcionar mejor con menos esfuerzo manual. Eso es exactamente lo que hacemos.
-          Reducimos la carga operativa con inteligencia artificial, y aumentamos tus conversiones con publicidad y
-          desarrollo web enfocado en resultados.
-        </p>
+    <section class="section" aria-labelledby="pains-title">
+      <div class="container pains">
+        <div class="pains__head">
+          <h2 class="h2" id="pains-title" data-reveal>Lo que se te escapa cada semana</h2>
+          <p class="body-l" data-reveal style="--i:1">No es falta de ganas. Es que el negocio todavía depende de que tú respondas, cotices y hagas seguimiento a mano.</p>
+          <a class="link-arrow" href="#calculadora" data-reveal style="--i:2">Calcula cuánto te cuesta <span class="circle"><i class="ph ph-arrow-down" aria-hidden="true"></i></span></a>
+        </div>
+        <div class="pain-list">
+          <article class="pain" data-reveal="right">
+            <span class="pain__icon"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i></span>
+            <div>
+              <h3>Un paciente escribe y tú estás en consulta</h3>
+              <p>Cuando por fin respondes, ya agendó con otro.</p>
+              <p class="pain__fix"><i class="ph-fill ph-check-circle" aria-hidden="true"></i>Tu agente responde y agenda en segundos.</p>
+            </div>
+          </article>
+          <article class="pain" data-reveal="right" style="--i:1">
+            <span class="pain__icon"><i class="ph ph-hourglass-medium" aria-hidden="true"></i></span>
+            <div>
+              <h3>Cotizar te toma media hora</h3>
+              <p>Medir, calcular y escribir todo a mano, una y otra vez.</p>
+              <p class="pain__fix"><i class="ph-fill ph-check-circle" aria-hidden="true"></i>La cotización sale sola, en minutos.</p>
+            </div>
+          </article>
+          <article class="pain" data-reveal="right" style="--i:2">
+            <span class="pain__icon"><i class="ph ph-receipt" aria-hidden="true"></i></span>
+            <div>
+              <h3>Se te escapan cobros y seguimientos</h3>
+              <p>Lo que no está en el calendario de alguien, se olvida.</p>
+              <p class="pain__fix"><i class="ph-fill ph-check-circle" aria-hidden="true"></i>Los recordatorios salen solos, a tiempo.</p>
+            </div>
+          </article>
+          <article class="pain" data-reveal="right" style="--i:3">
+            <span class="pain__icon"><i class="ph ph-megaphone" aria-hidden="true"></i></span>
+            <div>
+              <h3>Pagas pauta y no sabes qué vendió</h3>
+              <p>Hay visitas y likes, pero al final del mes no sabes cuántos fueron clientes.</p>
+              <p class="pain__fix"><i class="ph-fill ph-check-circle" aria-hidden="true"></i>Cada peso con un objetivo y un número.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        <div class="hero__actions">
-          <a href="https://wa.me/573128861517" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
-            Agendar asesoría
-            <span class="btn__arrow">→</span>
+    <section class="section" aria-labelledby="lines-title" style="padding-top:0">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="h2" id="lines-title" data-reveal>Tres formas de quitarte trabajo de encima</h2>
+          <p class="body-l" data-reveal style="--i:1">Empieza por la que más te duele hoy. Todo se conecta después.</p>
+        </div>
+        <div class="lines-grid">
+          <a class="line-card line-card--salud" href="/salud" data-tilt data-reveal>
+            <i class="ph ph-first-aid-kit line-card__deco" aria-hidden="true"></i>
+            <div>
+              <span class="line-card__who mono">Consultorios y clínicas</span>
+              <h3 class="h2">Agentes IA para salud</h3>
+              <ul>
+                <li><i class="ph-fill ph-check-circle" aria-hidden="true"></i>Responde a tus pacientes por WhatsApp, a cualquier hora</li>
+                <li><i class="ph-fill ph-check-circle" aria-hidden="true"></i>Agenda, confirma y recuerda las citas</li>
+                <li><i class="ph-fill ph-check-circle" aria-hidden="true"></i>Te pasa solo los casos que necesitan a una persona</li>
+              </ul>
+            </div>
+            <span class="link-arrow">Ver agentes para salud <span class="circle"><i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
           </a>
-          <a href="quienes-somos.html" class="btn btn--secondary">
-            Conoce más
+          <a class="line-card line-card--auto" href="/automatizaciones" data-tilt data-reveal style="--i:1">
+            <i class="ph ph-flow-arrow line-card__deco" aria-hidden="true"></i>
+            <div>
+              <span class="line-card__who mono">Empresas</span>
+              <h3 class="h2">Automatizaciones</h3>
+              <ul>
+                <li><i class="ph-fill ph-check-circle" aria-hidden="true"></i>Cotizaciones, cobros y seguimientos que pasan solos</li>
+              </ul>
+            </div>
+            <span class="link-arrow">Ver automatizaciones <span class="circle"><i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+          </a>
+          <a class="line-card line-card--mkt" href="/marketing" data-tilt data-reveal style="--i:2">
+            <i class="ph ph-megaphone line-card__deco" aria-hidden="true"></i>
+            <div>
+              <span class="line-card__who mono">Empresas</span>
+              <h3 class="h2">Pauta y páginas web</h3>
+              <ul>
+                <li><i class="ph-fill ph-check-circle" aria-hidden="true"></i>Campañas en Meta y Google enfocadas en clientes reales</li>
+              </ul>
+            </div>
+            <span class="link-arrow">Ver marketing <span class="circle"><i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
           </a>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="scroll-indicator">
-      <span>Scroll</span>
-      <div class="scroll-indicator__line"></div>
-    </div>
-  </section>
-
-  <!-- Pain Points Section -->
-  <section class="section section--alt" id="problemas">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-header__tag">Si tienes un negocio, probablemente esto te ha pasado</span>
-        <h2 class="section-header__title">
-          El crecimiento trae <span class="text-gradient">desorden y carga operativa</span>
-        </h2>
-        <p class="section-header__subtitle">
-          La mayoría de negocios no crecen por falta de clientes. Se frenan porque la operación no da más.
-        </p>
-      </div>
-
-      <div class="feature-list" style="max-width: 800px; margin: 0 auto;">
-        <div class="pain-card reveal delay-1">
-          <div class="pain-card__number">01</div>
-          <p class="pain-card__text">Tu paciente escribe por WhatsApp preguntando por una cita. Tú estás en consulta.
-            <strong style="color: var(--color-sun-glare);">Cuando puedes responder, ya agendó con otro.</strong>
-          </p>
-        </div>
-
-        <div class="pain-card reveal delay-2">
-          <div class="pain-card__number">02</div>
-          <p class="pain-card__text">Terminas el día con mensajes sin responder <strong
-              style="color: var(--color-sun-glare);">y una lista de pendientes que mañana va a ser más larga.</strong>
-          </p>
-        </div>
-
-        <div class="pain-card reveal delay-3">
-          <div class="pain-card__number">03</div>
-          <p class="pain-card__text">Pautas en Instagram, visitas a tu perfil, pero al final del mes <strong
-              style="color: var(--color-sun-glare);">no sabes exactamente cuántos de esos llegaron a ser clientes
-              reales.</strong></p>
-        </div>
-
-        <div class="pain-card reveal delay-4">
-          <div class="pain-card__number">04</div>
-          <p class="pain-card__text">Tienes una página web o un perfil, pero la gente llega, mira y se va. <strong
-              style="color: var(--color-sun-glare);">Y las ventas no llegan</strong></p>
-        </div>
-      </div>
-
-      <div class="text-center reveal delay-5" style="margin-top: var(--space-3xl);">
-        <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
-          El problema no es el esfuerzo. <span class="text-violet" style="font-weight: 600;">Es que sigues haciendo a
-            mano lo que podría hacerse solo.</span>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Solutions Section -->
-  <section class="section" id="soluciones">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-header__tag">Qué Hacemos</span>
-        <h2 class="section-header__title">
-          Todo lo que necesita tu negocio <span class="text-gradient">para operar mejor y vender más.</span>
-        </h2>
-        <p class="section-header__subtitle">
-          Combinamos inteligencia artificial, automatizaciones, publicidad y desarrollo web para que tu negocio atienda
-          mejor, venda más y dependa menos de ti.
-        </p>
-      </div>
-
-      <div class="grid-2" style="max-width: 900px; margin: 0 auto;">
-        <div class="card card--animated reveal delay-1">
-          <div class="card__icon">🤖</div>
-          <h3 class="card__title">Tu asistente virtual</h3>
-          <p class="card__text" style="margin-bottom: var(--space-lg);">Responde mensajes, agenda citas y atiende clientes a cualquier hora, incluso cuando tú no puedes. Lo entrenamos con tu negocio.</p>
-          <button class="btn btn--service" onclick="window.location.href='agentes-ia.html'">Saber
-            más</button>
-        </div>
-
-        <div class="card card--animated reveal delay-2">
-          <div class="card__icon">⚡</div>
-          <h3 class="card__title">Menos tareas manuales</h3>
-          <p class="card__text" style="margin-bottom: var(--space-lg);">Cobros, recordatorios, seguimientos y onboarding — todo lo que hoy alguien hace a mano, lo hacemos automático para que tu equipo se enfoque en vender.</p>
-          <button class="btn btn--service" onclick="window.location.href='automatizacion.html'">Saber
-            más</button>
-        </div>
-
-        <div class="card card--animated reveal delay-3">
-          <div class="card__icon">🎯</div>
-          <h3 class="card__title">Publicidad Digital</h3>
-          <p class="card__text" style="margin-bottom: var(--space-lg);">Gestionamos tus campañas en Meta y Google con foco en leads reales, no en likes. Cada peso invertido tiene un objetivo claro: conseguirte clientes.</p>
-          <button class="btn btn--service" onclick="window.location.href='publicidad-digital.html'">Saber
-            más</button>
-        </div>
-
-        <div class="card card--animated reveal delay-4">
-          <div class="card__icon">💻</div>
-          <h3 class="card__title">Páginas web que convierten</h3>
-          <p class="card__text" style="margin-bottom: var(--space-lg);">Una página bonita no alcanza. La tuya debe llevar al visitante de "¿quiénes son?" a "quiero esto" en menos de 5 segundos.</p>
-          <button class="btn btn--service" onclick="window.location.href='desarrollo-web.html'">Saber
-            más</button>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- How We Work Section -->
-  <section class="section section--alt" id="proceso">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-header__tag">Cómo trabajamos</span>
-        <h2 class="section-header__title">
-          Trabajamos como parte de tu negocio, <span class="text-gradient">no como un proveedor más.</span>
-        </h2>
-      </div>
-
-      <div class="grid-3" style="max-width: 1000px; margin: 0 auto;">
-        <div class="card value-card reveal delay-1">
-          <div class="card__icon"
-            style="margin: 0 auto var(--space-lg); font-size: 2rem; width: 72px; height: 72px; border-radius: var(--radius-lg);">
-            🧩
-          </div>
-          <h3 class="card__title text-center">Todo conectado</h3>
-          <p class="card__text text-center">Tu agente de IA, tu publicidad y tu web trabajan juntos como un solo sistema. Tráfico → atención → conversión, sin fricciones.</p>
-        </div>
-
-        <div class="card value-card reveal delay-2">
-          <div class="card__icon"
-            style="margin: 0 auto var(--space-lg); font-size: 2rem; width: 72px; height: 72px; border-radius: var(--radius-lg);">
-            🗣️
-          </div>
-          <h3 class="card__title text-center">Pensado para crecer</h3>
-          <p class="card__text text-center">Lo que implementamos hoy aguanta cuando tu negocio crezca. No tienes que empezar de cero cada vez que subes un nivel.</p>
-        </div>
-
-        <div class="card value-card reveal delay-3">
-          <div class="card__icon"
-            style="margin: 0 auto var(--space-lg); font-size: 2rem; width: 72px; height: 72px; border-radius: var(--radius-lg);">
-            ⚙️
-          </div>
-          <h3 class="card__title text-center">Hecho a tu medida</h3>
-          <p class="card__text text-center">No vendemos plantillas ni soluciones genéricas. Nos sentamos a entender tu operación y construimos exactamente lo que necesitas.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 
--->
-
-  <!-- Testimonials Section -->
-  <section class="section" id="testimonios">
-    <div class="container">
-
-      <div class="section-header reveal">
-        <span class="section-header__tag">Lo que dicen nuestros clientes</span>
-        <h2 class="section-header__title">
-          Resultados reales, <span class="text-gradient">en sus propias palabras.</span>
-        </h2>
-      </div>
-
-      <div class="grid-2" style="max-width: 900px; margin: 0 auto; gap: var(--space-lg);">
-
-        <!-- Testimonio 1 — Ignacio González Neurocirujano -->
-        <div class="card card--animated reveal delay-1"
-          style="display: flex; flex-direction: column; gap: var(--space-md);">
-          <div style="display: flex; align-items: center; gap: var(--space-md);">
-            <div style="
-            width: 48px; height: 48px; border-radius: 50%;
-            background: linear-gradient(135deg, var(--color-violet), var(--color-sun-glare));
-            display: flex; align-items: center; justify-content: center;
-            font-family: var(--font-primary); font-weight: 700; font-size: 1rem;
-            color: #fff; flex-shrink: 0;
-          ">IG</div>
+    <section class="section" id="calculadora" aria-labelledby="calc-title">
+      <div class="container">
+        <div class="calc" data-calc data-reveal>
+          <div class="calc__inputs">
             <div>
-              <p style="font-weight: 600; color: var(--text-primary); margin: 0; font-size: 0.95rem;">Ignacio González
-              </p>
-              <p style="color: var(--text-muted); margin: 0; font-size: 0.8rem;">Neurocirujano</p>
+              <h2 class="h2" id="calc-title">¿Cuánto te cuesta no responder a tiempo?</h2>
+              <p class="muted" style="margin-top:12px">Mueve los valores según tu negocio. El cálculo se hace aquí mismo, no guardamos nada.</p>
             </div>
-            <div style="margin-left: auto; color: #F5A623; font-size: 0.85rem; letter-spacing: 2px;">★★★★★</div>
-          </div>
-          <p class="card__text" style="font-style: italic; line-height: 1.7; margin: 0;">
-            "Llevaba meses con el problema de que mis pacientes escribían y nadie respondía a tiempo. Desde que Cynor
-            nos implementó la secretaría virtual eso cambió completamente. Ahora las citas se agendan solas y yo me
-            enfoco en mis pacientes."
-          </p>
-          <div style="display: flex; align-items: center; gap: 6px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--text-muted)">
-              <path
-                d="M21.35 11.1L12.91 2.66a2 2 0 00-2.82 0L2.66 10.09a2 2 0 000 2.82l8.44 8.44a2 2 0 002.82 0l8.44-8.44a2 2 0 000-2.82z" />
-            </svg>
-            <span style="font-size: 0.75rem; color: var(--text-muted);">Google Reviews</span>
-          </div>
-        </div>
-
-        <!-- Testimonio 2 — Felipe Piedrahita -->
-        <div class="card card--animated reveal delay-2"
-          style="display: flex; flex-direction: column; gap: var(--space-md);">
-          <div style="display: flex; align-items: center; gap: var(--space-md);">
-            <div style="
-            width: 48px; height: 48px; border-radius: 50%;
-            background: linear-gradient(135deg, #2196F3, #00BCD4);
-            display: flex; align-items: center; justify-content: center;
-            font-family: var(--font-primary); font-weight: 700; font-size: 1rem;
-            color: #fff; flex-shrink: 0;
-          ">FP</div>
-            <div>
-              <p style="font-weight: 600; color: var(--text-primary); margin: 0; font-size: 0.95rem;">Felipe Piedrahita
-              </p>
-              <p style="color: var(--text-muted); margin: 0; font-size: 0.8rem;">Ventanería Panorámica</p>
+            <div class="field-range">
+              <div class="field-range__top"><label for="calc-msgs">Mensajes nuevos por día</label><output data-for="msgs" for="calc-msgs">20 al día</output></div>
+              <input type="range" id="calc-msgs" name="msgs" min="5" max="120" step="1" value="20">
             </div>
-            <div style="margin-left: auto; color: #F5A623; font-size: 0.85rem; letter-spacing: 2px;">★★★★★</div>
-          </div>
-          <p class="card__text" style="font-style: italic; line-height: 1.7; margin: 0;">
-            "Antes cotizar una ventana nos tomaba media hora entre medir, calcular y escribir todo a mano. Gracias a
-            Cynor logramos automatizar ese proceso y ahora cotizamos en minutos. Podemos atender más clientes en el
-            mismo tiempo y cumplirles en tiempos de respuesta."
-          </p>
-          <div style="display: flex; align-items: center; gap: 6px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--text-muted)">
-              <path
-                d="M21.35 11.1L12.91 2.66a2 2 0 00-2.82 0L2.66 10.09a2 2 0 000 2.82l8.44 8.44a2 2 0 002.82 0l8.44-8.44a2 2 0 000-2.82z" />
-            </svg>
-            <span style="font-size: 0.75rem; color: var(--text-muted);">Google Reviews</span>
-          </div>
-        </div>
-
-        <!-- Testimonio 3 — Nalo Group -->
-        <div class="card card--animated reveal delay-3"
-          style="display: flex; flex-direction: column; gap: var(--space-md);">
-          <div style="display: flex; align-items: center; gap: var(--space-md);">
-            <div style="
-            width: 48px; height: 48px; border-radius: 50%;
-            background: linear-gradient(135deg, #43A047, #00897B);
-            display: flex; align-items: center; justify-content: center;
-            font-family: var(--font-primary); font-weight: 700; font-size: 1rem;
-            color: #fff; flex-shrink: 0;
-          ">NG</div>
-            <div>
-              <p style="font-weight: 600; color: var(--text-primary); margin: 0; font-size: 0.95rem;">Nalo Group</p>
-              <p style="color: var(--text-muted); margin: 0; font-size: 0.8rem;">Automatización de cartera</p>
+            <div class="field-range">
+              <div class="field-range__top"><label for="calc-late">Mensajes que no respondes en los primeros 5 minutos</label><output data-for="late" for="calc-late">40%</output></div>
+              <input type="range" id="calc-late" name="late" min="10" max="90" step="5" value="40">
             </div>
-            <div style="margin-left: auto; color: #F5A623; font-size: 0.85rem; letter-spacing: 2px;">★★★★★</div>
-          </div>
-          <p class="card__text" style="font-style: italic; line-height: 1.7; margin: 0;">
-            "Teníamos un problema serio con el seguimiento de cartera, todo era manual y se nos escapaban cobros. Cynor
-            automatizó el proceso y ahora los recordatorios salen solos. Recuperamos plata que teníamos perdida y el
-            equipo dejó de perder tiempo en eso."
-          </p>
-          <div style="display: flex; align-items: center; gap: 6px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--text-muted)">
-              <path
-                d="M21.35 11.1L12.91 2.66a2 2 0 00-2.82 0L2.66 10.09a2 2 0 000 2.82l8.44 8.44a2 2 0 002.82 0l8.44-8.44a2 2 0 000-2.82z" />
-            </svg>
-            <span style="font-size: 0.75rem; color: var(--text-muted);">Google Reviews</span>
-          </div>
-        </div>
-
-        <!-- Testimonio 4 — Krobi Tech -->
-        <div class="card card--animated reveal delay-4"
-          style="display: flex; flex-direction: column; gap: var(--space-md);">
-          <div style="display: flex; align-items: center; gap: var(--space-md);">
-            <div style="
-            width: 48px; height: 48px; border-radius: 50%;
-            background: linear-gradient(135deg, #E91E63, #9C27B0);
-            display: flex; align-items: center; justify-content: center;
-            font-family: var(--font-primary); font-weight: 700; font-size: 1rem;
-            color: #fff; flex-shrink: 0;
-          ">KT</div>
-            <div>
-              <p style="font-weight: 600; color: var(--text-primary); margin: 0; font-size: 0.95rem;">Krobi Tech</p>
-              <p style="color: var(--text-muted); margin: 0; font-size: 0.8rem;">Publicidad digital</p>
+            <div class="field-range">
+              <div class="field-range__top"><label for="calc-value">Valor promedio de una consulta o venta</label><output data-for="value" for="calc-value">$ 150.000</output></div>
+              <input type="range" id="calc-value" name="value" min="50000" max="1000000" step="10000" value="150000">
             </div>
-            <div style="margin-left: auto; color: #F5A623; font-size: 0.85rem; letter-spacing: 2px;">★★★★★</div>
           </div>
-          <p class="card__text" style="font-style: italic; line-height: 1.7; margin: 0;">
-            "Llevábamos tiempo invirtiendo en publicidad sin ver resultados claros. Con Cynor empezamos a ver leads de
-            mejor calidad. Por fin sentimos que la plata que invertimos en pauta tiene sentido."
-          </p>
-          <div style="display: flex; align-items: center; gap: 6px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--text-muted)">
-              <path
-                d="M21.35 11.1L12.91 2.66a2 2 0 00-2.82 0L2.66 10.09a2 2 0 000 2.82l8.44 8.44a2 2 0 002.82 0l8.44-8.44a2 2 0 000-2.82z" />
-            </svg>
-            <span style="font-size: 0.75rem; color: var(--text-muted);">Google Reviews</span>
+          <div class="calc__result" aria-live="polite">
+            <p class="calc__label mono">Podrías estar dejando de recibir al mes</p>
+            <p class="calc__big" data-out="month">$ 0</p>
+            <p class="calc__sub">Son unas <strong data-out="people">0</strong> personas que escribieron y terminaron comprando en otro lado.</p>
+            <p class="calc__year"><span class="mono">En un año</span><span data-out="year">$ 0</span></p>
+            <p class="calc__note">Supuesto: 3 de cada 10 personas que esperan más de 5 minutos se van con otro. 26 días hábiles al mes.</p>
+            <a class="btn btn--lime" href="#diagnostico">Diagnóstico gratis <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
           </div>
-        </div>
-
-      </div>
-
-      <!-- Google rating badge -->
-      <div class="text-center reveal delay-5" style="margin-top: var(--space-3xl);">
-        <div style="
-        display: inline-flex; align-items: center; gap: var(--space-md);
-        background: var(--bg-card); border: 1px solid var(--border-color);
-        border-radius: var(--radius-full); padding: 12px 24px;
-      ">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-              fill="#4285F4" />
-            <path
-              d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-              fill="#34A853" />
-            <path
-              d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z"
-              fill="#FBBC05" />
-            <path
-              d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-              fill="#EA4335" />
-          </svg>
-          <span style="color: var(--text-secondary); font-size: 0.9rem;">
-            <strong style="color: var(--text-primary);">5.0</strong> en Google · 4 reseñas verificadas
-          </span>
-          <div style="color: #F5A623; letter-spacing: 2px; font-size: 0.85rem;">★★★★★</div>
         </div>
       </div>
+    </section>
 
-    </div>
-  </section>
 
-  <!-- CTA Section -->
-  <section class="section section--alt cta-section" id="cta">
+    <section class="section" aria-labelledby="process-title" style="padding-top:0">
+      <div class="container">
+        <h2 class="h2" id="process-title" data-reveal style="max-width:20ch">Así trabajamos contigo</h2>
+        <div class="process" data-inview>
+          <div class="process__line" aria-hidden="true"></div>
+          <div class="step" data-reveal>
+            <span class="step__dot"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></span>
+            <h3>Entendemos tu negocio</h3>
+            <p>Una llamada para ver dónde pierdes tiempo y clientes.</p>
+            <span class="step__time mono">30 minutos, gratis</span>
+          </div>
+          <div class="step" data-reveal style="--i:1">
+            <span class="step__dot"><i class="ph ph-pencil-ruler" aria-hidden="true"></i></span>
+            <h3>Diseñamos a tu medida</h3>
+            <p>Nada de plantillas. Te explicamos el plan sin tecnicismos.</p>
+          </div>
+          <div class="step" data-reveal style="--i:2">
+            <span class="step__dot"><i class="ph ph-rocket-launch" aria-hidden="true"></i></span>
+            <h3>Lo ponemos a funcionar</h3>
+            <p>Lanzamos rápido para que veas resultados desde las primeras semanas.</p>
+          </div>
+          <div class="step" data-reveal style="--i:3">
+            <span class="step__dot"><i class="ph ph-trend-up" aria-hidden="true"></i></span>
+            <h3>Medimos y mejoramos</h3>
+            <p>Seguimos contigo con números claros, no con promesas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="quotes-title" data-quotes style="padding-top:0">
+      <div class="container">
+        <div class="quotes-head">
+          <div>
+            <h2 class="h2" id="quotes-title" data-reveal>Lo que dicen nuestros clientes</h2>
+            <div class="rating" data-reveal style="--i:1;margin-top:16px">
+              <span class="rating__score">5.0</span>
+              <span><span class="rating__stars" aria-hidden="true"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></span><br><span class="muted">en Google, 4 reseñas</span></span>
+            </div>
+          </div>
+          <div class="quotes-nav">
+            <button class="icon-btn" type="button" data-dir="-1" aria-label="Testimonio anterior"><i class="ph ph-arrow-left" aria-hidden="true"></i></button>
+            <button class="icon-btn" type="button" data-dir="1" aria-label="Siguiente testimonio"><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
+          </div>
+        </div>
+        <div class="quotes" tabindex="0" aria-label="Testimonios">
+          <figure class="quote" data-reveal>
+            <blockquote>“Mis pacientes escribían y nadie respondía a tiempo. Ahora las citas se agendan solas y yo me enfoco en mis pacientes.”</blockquote>
+            <figcaption class="quote__who"><span class="avatar">IG</span><span><strong>Ignacio González</strong><span>Neurocirujano</span></span></figcaption>
+          </figure>
+          <figure class="quote" data-reveal style="--i:1">
+            <blockquote>“Cotizar una ventana nos tomaba media hora. Ahora cotizamos en minutos y atendemos más clientes en el mismo tiempo.”</blockquote>
+            <figcaption class="quote__who"><span class="avatar">FP</span><span><strong>Felipe Piedrahita</strong><span>Ventanería Panorámica</span></span></figcaption>
+          </figure>
+          <figure class="quote" data-reveal style="--i:2">
+            <blockquote>“Se nos escapaban cobros. Los recordatorios ahora salen solos y recuperamos plata que teníamos perdida.”</blockquote>
+            <figcaption class="quote__who"><span class="avatar">NG</span><span><strong>Nalo Group</strong><span>Automatización de cartera</span></span></figcaption>
+          </figure>
+          <figure class="quote" data-reveal style="--i:3">
+            <blockquote>“Invertíamos en publicidad sin ver resultados claros. Con Cynor llegaron leads de mejor calidad.”</blockquote>
+            <figcaption class="quote__who"><span class="avatar">KT</span><span><strong>Krobi Tech</strong><span>Publicidad digital</span></span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="nosotros" aria-labelledby="about-title" style="padding-top:0">
+      <div class="container">
+        <h2 class="sr-only" id="about-title">Nosotros</h2>
+        <p class="manifesto" data-words>Somos un equipo en Medellín que construye sistemas para que tu negocio funcione <span class="hl">sin que todo dependa de ti.</span> No reemplazamos a tu gente: le quitamos lo repetitivo para que se enfoque en lo que importa.</p>
+        <div class="why">
+          <div data-reveal>
+            <i class="ph ph-puzzle-piece" aria-hidden="true"></i>
+            <h3>Hecho a tu medida</h3>
+            <p>Primero entendemos tu operación. Después construimos solo lo que necesitas.</p>
+          </div>
+          <div data-reveal style="--i:1">
+            <i class="ph ph-chats-teardrop" aria-hidden="true"></i>
+            <h3>Sin tecnicismos</h3>
+            <p>Te explicamos todo en tu idioma, con números que entiendes.</p>
+          </div>
+          <div data-reveal style="--i:2">
+            <i class="ph ph-plugs-connected" aria-hidden="true"></i>
+            <h3>Todo conectado</h3>
+            <p>Tu agente, tu pauta y tu web trabajan como un solo sistema.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq-title" style="padding-top:0">
+      <div class="container faq">
+        <h2 class="h2" id="faq-title" data-reveal>Preguntas frecuentes</h2>
+        <div class="faq__list" data-reveal style="--i:1">
+          <details>
+            <summary>¿Cuánto cuesta?<span class="plus" aria-hidden="true"><i class="ph ph-plus"></i></span></summary>
+            <div><p>Depende de lo que necesites automatizar. En el diagnóstico gratis vemos tu caso y te damos un precio cerrado, sin sorpresas.</p></div>
+          </details>
+          <details>
+            <summary>¿El agente reemplaza a mi secretaria o a mi equipo?<span class="plus" aria-hidden="true"><i class="ph ph-plus"></i></span></summary>
+            <div><p>No. Le quita lo repetitivo (responder lo mismo, agendar, recordar) y le pasa las conversaciones que necesitan a una persona.</p></div>
+          </details>
+          <details>
+            <summary>¿Funciona con el WhatsApp que ya uso?<span class="plus" aria-hidden="true"><i class="ph ph-plus"></i></span></summary>
+            <div><p>Sí. Lo conectamos a tu número de WhatsApp Business y a las herramientas que ya usas, como tu agenda o tus hojas de cálculo.</p></div>
+          </details>
+          <details>
+            <summary>¿Cuánto tiempo toma implementarlo?<span class="plus" aria-hidden="true"><i class="ph ph-plus"></i></span></summary>
+            <div><p>Depende del alcance, pero buscamos que veas algo funcionando desde las primeras semanas y lo vamos mejorando contigo.</p></div>
+          </details>
+          <details>
+            <summary>No sé nada de tecnología. ¿Igual puedo?<span class="plus" aria-hidden="true"><i class="ph ph-plus"></i></span></summary>
+            <div><p>Claro. Nosotros nos encargamos de la parte técnica. Tú solo nos cuentas cómo funciona tu negocio.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="diagnostico" aria-labelledby="diag-title">
+      <div class="container">
+        <div class="diag" data-diag data-reveal="scale">
+          <div class="diag__intro">
+            <h2 class="h2" id="diag-title">Tu diagnóstico en 2 minutos</h2>
+            <p>Responde 4 preguntas y te decimos por dónde empezar. Al final lo envías por WhatsApp y lo revisamos contigo, sin costo.</p>
+            <div class="diag__steps" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            <p class="diag__count mono" aria-live="polite">Pregunta 1 de 4</p>
+          </div>
+          <div class="diag__stage">
+            <noscript><p>Para hacer el diagnóstico activa JavaScript, o <a href="https://wa.me/573128861517" style="color:#E2F06C">escríbenos por WhatsApp</a>.</p></noscript>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
     <div class="container">
-      <div class="cta-box reveal-scale">
-        <div class="glow-orb glow-orb--violet" style="width: 300px; height: 300px; top: -30%; right: -10%;"></div>
-        <div class="glow-orb glow-orb--sun" style="width: 200px; height: 200px; bottom: -20%; left: -5%;"></div>
-
-        <span class="section-header__tag" style="position: relative; z-index: 1;">Sin compromiso</span>
-        <h2 class="cta-box__title">
-          Hablemos 30 minutos<br>
-          <span class="text-gradient">y te digo si puedo ayudarte.</span>
-        </h2>
-        <p class="cta-box__text">
-          Una llamada corta es suficiente para ver qué tiene sentido para tu negocio. Sin tecnicismos, sin presión.
-        </p>
-        <a href="https://wa.me/573128861517" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
-          Agenda tu asesoría gratuita
-          <span class="btn__arrow">→</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer" id="footer">
-    <div class="container">
-      <div class="footer__grid">
+      <div class="footer__top">
         <div class="footer__brand">
-          <img src="src/Logo.png" alt="Cynor Logo" width="200" height="96" loading="lazy">
-          <p>Innovación inteligente para tu crecimiento. Te ayudamos a vender más y operar mejor con herramientas de
-            automatización y asistentes virtuales.</p>
+          <p class="footer__tagline">Innovation that thinks in data.</p>
+          <p class="footer__about">Agentes IA para consultorios, automatizaciones y marketing para empresas. Desde Medellín para toda Colombia.</p>
         </div>
-
-        <div>
-          <h4 class="footer__title">Navegación</h4>
-          <div class="footer__links">
-            <a href="index.html" class="footer__link">Inicio</a>
-            <a href="index.html#soluciones" class="footer__link">Servicios</a>
-            <a href="quienes-somos.html" class="footer__link">Quiénes Somos</a>
-            <a href="blog.html" class="footer__link">Blog</a>
-            <a href="contacto.html" class="footer__link">Contacto</a>
+        <div class="footer__cols">
+          <div>
+            <p class="footer__title">Servicios</p>
+            <a href="/salud">Agentes IA para salud</a>
+            <a href="/automatizaciones">Automatizaciones</a>
+            <a href="/marketing">Pauta y páginas web</a>
           </div>
-        </div>
-
-        <div>
-          <h4 class="footer__title">Legal</h4>
-          <div class="footer__links">
-            <a href="politicas-privacidad.html" class="footer__link">Políticas de Privacidad</a>
-            <a href="terminos-condiciones.html" class="footer__link">Términos y Condiciones</a>
-            <a href="eliminacion-datos.html" class="footer__link">Eliminación de Datos</a>
+          <div>
+            <p class="footer__title">Cynor</p>
+            <a href="/#nosotros">Nosotros</a>
+            <a href="/blog">Blog</a>
+            <a href="/contacto">Contacto</a>
           </div>
-        </div>
-
-        <div>
-          <h4 class="footer__title">Contacto</h4>
-          <div class="footer__links">
-            <a href="mailto:Cynorsolutionsgroup@gmail.com" class="footer__link">Cynorsolutionsgroup@gmail.com</a>
-            <a href="https://wa.me/573128861517" class="footer__link" target="_blank"
-              rel="noopener noreferrer">WhatsApp</a>
-            <a href="contacto.html" class="footer__link">Formulario de Contacto</a>
+          <div>
+            <p class="footer__title">Hablemos</p>
+            <a href="https://wa.me/573128861517" target="_blank" rel="noopener" data-track="whatsapp_footer">WhatsApp +57 312 886 1517</a>
+            <a href="mailto:cynorsolutionsgroup@gmail.com">cynorsolutionsgroup@gmail.com</a>
+            <a href="https://www.instagram.com/cynor_solutions" target="_blank" rel="noopener">Instagram</a>
           </div>
         </div>
       </div>
-
+      <p class="footer__wordmark" aria-hidden="true" data-inview>CYNOR</p>
       <div class="footer__bottom">
-        <p class="footer__copy">© 2026 Cynor. Todos los derechos reservados.</p>
-        <div class="footer__socials">
-          <a href="https://wa.me/573128861517" class="footer__social" aria-label="WhatsApp" title="WhatsApp"
-            target="_blank" rel="noopener noreferrer">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-            </svg>
-          </a>
-          <a href="https://www.instagram.com/cynor_solutions?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-            class="footer__social" aria-label="Instagram" title="Instagram" target="_blank" rel="noopener noreferrer">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
-          </a>
+        <p>© <span data-year>2026</span> Cynor. Medellín, Colombia.</p>
+        <div class="footer__legal">
+          <a href="/politicas-privacidad">Privacidad</a>
+          <a href="/terminos-condiciones">Términos</a>
+          <a href="/eliminacion-datos">Eliminación de datos</a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Cookie / Notification Bar -->
-  <div class="notification-bar" id="cookieBar">
-    <p>Usamos cookies para mejorar tu experiencia. <a href="politicas-privacidad.html">Más información</a>.</p>
-    <button class="btn btn--primary" style="padding: 8px 20px; font-size: 0.8rem;">Aceptar</button>
+  <a class="wa-float" href="https://wa.me/573128861517?text=Hola%20Cynor%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp" data-track="whatsapp_flotante">
+    <i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i>
+  </a>
+
+  <div class="cookie" id="cookieBar" hidden>
+    <p>Usamos cookies para medir y mejorar la página. <a href="/politicas-privacidad">Más información</a></p>
+    <button class="btn btn--ink btn--sm" id="cookieOk">Entendido</button>
   </div>
 
-  <!-- Back to Top -->
-  <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-      stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="18 15 12 9 6 15"></polyline>
-    </svg>
-  </button>
-
-  <!-- Scripts -->
-  <script src="js/main.min.js" defer></script>
+  <script src="/js/cynor.js?v=1c4d6b7770" defer></script>
+  
 </body>
-
 </html>

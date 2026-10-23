@@ -1,0 +1,77 @@
+<!--meta
+{
+  "title": "Contacto | Cynor",
+  "description": "Escríbenos por WhatsApp, correo o el formulario. Te respondemos lo antes posible. Cynor, Medellín, Colombia.",
+  "path": "/contacto",
+  "nav": "contacto",
+  "schema": [
+    {"@type": "ContactPage", "name": "Contacto Cynor", "url": "https://www.cynor.digital/contacto"}
+  ]
+}
+-->
+    <section class="page-hero" style="padding-bottom:clamp(32px,5vw,56px)">
+      <div class="container hero-in">
+        <h1 class="h1" style="max-width:16ch">Hablemos de <span class="hl">tu negocio.</span></h1>
+        <p class="lead">Cuéntanos qué te está quitando tiempo. Te respondemos lo antes posible.</p>
+      </div>
+    </section>
+
+    <section class="section--tight" style="padding-top:0">
+      <div class="container contact">
+        <form class="form" id="contactForm" action="https://formsubmit.co/950fcbbd4c133c2789b7f92761d56845" method="POST" novalidate data-reveal>
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="Nuevo contacto desde Landing Cynor">
+          <input type="hidden" name="_next" value="https://www.cynor.digital/contacto?enviado=1">
+          <p class="form__status" id="formStatus" role="status" hidden>¡Gracias! Recibimos tu mensaje y te escribimos pronto.</p>
+          <div class="form__row">
+            <div class="field">
+              <label for="contactName">Nombre completo</label>
+              <input type="text" id="contactName" name="name" autocomplete="name" required>
+              <p class="field__error">Escribe tu nombre.</p>
+            </div>
+            <div class="field">
+              <label for="contactEmail">Correo electrónico</label>
+              <input type="email" id="contactEmail" name="email" autocomplete="email" inputmode="email" required>
+              <p class="field__error">Escribe un correo válido, por ejemplo nombre@empresa.com.</p>
+            </div>
+          </div>
+          <div class="field">
+            <label for="contactCompany">Empresa o consultorio (opcional)</label>
+            <input type="text" id="contactCompany" name="company" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="contactSubject">¿Qué te interesa?</label>
+            <select id="contactSubject" name="subject" required>
+              <option value="" disabled selected>Selecciona un tema</option>
+              <option value="agentes">Agentes IA</option>
+              <option value="automatizaciones">Automatizaciones</option>
+              <option value="publicidad">Publicidad digital o página web</option>
+              <option value="otro">Otro</option>
+            </select>
+            <p class="field__error">Elige un tema.</p>
+          </div>
+          <div class="field">
+            <label for="contactMessage">Mensaje</label>
+            <textarea id="contactMessage" name="message" required></textarea>
+            <p class="field__error">Cuéntanos brevemente qué necesitas.</p>
+          </div>
+          <button type="submit" class="btn btn--ink">Enviar mensaje <i class="ph ph-paper-plane-tilt" aria-hidden="true"></i></button>
+        </form>
+
+        <div class="contact-info">
+          <a class="contact-item" href="https://wa.me/573128861517?text=Hola%20Cynor%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener" data-track="whatsapp_contacto" data-reveal="right">
+            <i class="ph-fill ph-whatsapp-logo" aria-hidden="true"></i>
+            <span><span>WhatsApp, la forma más rápida</span><strong>+57 312 886 1517</strong></span>
+          </a>
+          <a class="contact-item" href="mailto:cynorsolutionsgroup@gmail.com" data-reveal="right" style="--i:1">
+            <i class="ph ph-envelope-simple" aria-hidden="true"></i>
+            <span><span>Correo</span><strong>cynorsolutionsgroup@gmail.com</strong></span>
+          </a>
+          <div class="contact-item" data-reveal="right" style="--i:2">
+            <i class="ph ph-map-pin" aria-hidden="true"></i>
+            <span><span>Ubicación</span><strong>Medellín, Colombia. Trabajamos con todo el país.</strong></span>
+          </div>
+          <a class="link-arrow" href="/#diagnostico" style="margin-top:14px" data-reveal="right">¿Prefieres el diagnóstico de 2 minutos? <span class="circle"><i class="ph ph-arrow-right" aria-hidden="true"></i></span></a>
+        </div>
+      </div>
+    </section>

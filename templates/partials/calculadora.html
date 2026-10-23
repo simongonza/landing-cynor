@@ -1,0 +1,32 @@
+    <section class="section" id="calculadora" aria-labelledby="calc-title">
+      <div class="container">
+        <div class="calc" data-calc data-reveal>
+          <div class="calc__inputs">
+            <div>
+              <h2 class="h2" id="calc-title">¿Cuánto te cuesta no responder a tiempo?</h2>
+              <p class="muted" style="margin-top:12px">Mueve los valores según tu negocio. El cálculo se hace aquí mismo, no guardamos nada.</p>
+            </div>
+            <div class="field-range">
+              <div class="field-range__top"><label for="calc-msgs">Mensajes nuevos por día</label><output data-for="msgs" for="calc-msgs">20 al día</output></div>
+              <input type="range" id="calc-msgs" name="msgs" min="5" max="120" step="1" value="20">
+            </div>
+            <div class="field-range">
+              <div class="field-range__top"><label for="calc-late">Mensajes que no respondes en los primeros 5 minutos</label><output data-for="late" for="calc-late">40%</output></div>
+              <input type="range" id="calc-late" name="late" min="10" max="90" step="5" value="40">
+            </div>
+            <div class="field-range">
+              <div class="field-range__top"><label for="calc-value">Valor promedio de una consulta o venta</label><output data-for="value" for="calc-value">$ 150.000</output></div>
+              <input type="range" id="calc-value" name="value" min="50000" max="1000000" step="10000" value="150000">
+            </div>
+          </div>
+          <div class="calc__result" aria-live="polite">
+            <p class="calc__label mono">Podrías estar dejando de recibir al mes</p>
+            <p class="calc__big" data-out="month">$ 0</p>
+            <p class="calc__sub">Son unas <strong data-out="people">0</strong> personas que escribieron y terminaron comprando en otro lado.</p>
+            <p class="calc__year"><span class="mono">En un año</span><span data-out="year">$ 0</span></p>
+            <p class="calc__note">Supuesto: 3 de cada 10 personas que esperan más de 5 minutos se van con otro. 26 días hábiles al mes.</p>
+            <a class="btn btn--lime" href="#diagnostico">Diagnóstico gratis <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>

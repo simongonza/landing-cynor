@@ -1,3 +1,11 @@
-/*
-  Redirects and rewrites for Cloudflare Pages
-*/
+# Páginas del sitio anterior -> nuevas páginas (301 para conservar SEO y enlaces)
+/agentes-ia                /salud              301
+/agentes-ia.html           /salud              301
+/automatizacion            /automatizaciones   301
+/automatizacion.html       /automatizaciones   301
+/publicidad-digital        /marketing          301
+/publicidad-digital.html   /marketing          301
+/desarrollo-web            /marketing          301
+/desarrollo-web.html       /marketing          301
+/quienes-somos             /#nosotros          301
+/quienes-somos.html        /#nosotros          301

@@ -39,6 +39,9 @@ const blogPosts = [
   }
 ];
 
+// Vista del blog: lista de artículos y artículo individual (#post-<id>)
+const BLOG_TITLE = document.title;
+
 function initBlog() {
     handleHashChange();
     window.addEventListener('hashchange', handleHashChange);
@@ -46,85 +49,53 @@ function initBlog() {
 
 function handleHashChange() {
     const hash = window.location.hash.substring(1);
-    if (hash && hash.startsWith('post-')) {
-        const postId = hash.replace('post-', '');
-        const post = blogPosts.find(p => p.id === postId);
-        if (post) {
-            renderPost(post);
-            return;
-        }
-    }
-    // Default: render list
-    renderList();
+    const post = hash.startsWith('post-') ? blogPosts.find(p => p.id === hash.slice(5)) : null;
+    if (post) renderPost(post);
+    else renderList();
 }
 
 function renderList() {
-    const listContainer = document.getElementById('blog-list');
-    const postContainer = document.getElementById('blog-post');
-    const heroTitle = document.getElementById('blog-hero-title');
-    
-    // UI toggles
-    listContainer.style.display = 'grid';
-    postContainer.style.display = 'none';
-    if(heroTitle) heroTitle.innerHTML = 'Blog <span class="text-gradient">Cynor</span>';
-    
-    // Clear and populate grid
-    listContainer.innerHTML = '';
-    
-    blogPosts.forEach((post, i) => {
-        const cardHTML = `
-        <div class="card" style="display: flex; flex-direction: column; padding: 0; overflow: hidden; cursor:pointer;" onclick="window.location.hash='post-${post.id}'">
-          <div class="blog-card__img-wrapper">
-            <img src="${post.imagen}" alt="${post.titulo}" width="480" height="480" loading="lazy">
-            <div class="blog-img-identifier">${i + 1}</div>
+    const list = document.getElementById('blog-list');
+    const article = document.getElementById('blog-post');
+    const head = document.getElementById('blog-head');
+    list.hidden = false;
+    article.hidden = true;
+    if (head) head.hidden = false;
+    document.title = BLOG_TITLE;
+    list.innerHTML = blogPosts.map(post => `
+        <a class="post-card" href="#post-${post.id}">
+          <div class="post-card__img"><img src="${post.imagen}" alt="" width="480" height="480" loading="lazy"></div>
+          <div class="post-card__body">
+            <p class="post-card__meta mono">${post.categoria} · ${post.fecha}</p>
+            <h2>${post.titulo}</h2>
+            <p>${post.resumen}</p>
+            <span class="link-arrow">Leer artículo <span class="circle"><i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
           </div>
-          <div style="padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1;">
-            <div style="font-size: 0.8rem; color: var(--color-violet); font-family: 'Orbitron', monospace; margin-bottom: 0.5rem;">${post.categoria} &bull; ${post.fecha}</div>
-            <h3 style="font-family: 'DM Sans', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem; line-height: 1.4;">${post.titulo}</h3>
-            <p class="card__text" style="flex-grow: 1; margin-bottom: 1.5rem; font-size: 0.95rem;">${post.resumen}</p>
-            <button class="btn btn--secondary" style="width: 100%; border: 1px solid rgba(255,255,255,0.1);">Leer artículo</button>
-          </div>
-        </div>
-        `;
-        listContainer.insertAdjacentHTML('beforeend', cardHTML);
-    });
+        </a>`).join('');
 }
 
 function renderPost(post) {
-    const listContainer = document.getElementById('blog-list');
-    const postContainer = document.getElementById('blog-post');
-    const heroTitle = document.getElementById('blog-hero-title');
-    
-    const postIndex = blogPosts.findIndex(p => p.id === post.id) + 1;
-
-    // Build post HTML
-    const html = `
-        <button class="btn btn--secondary" style="margin-bottom: 2rem; padding: 10px 20px; font-size: 0.9rem;" onclick="window.location.hash=''">← Volver al Blog</button>
-        <div class="blog-post__img-wrapper">
-          <img src="${post.imagen}" alt="${post.titulo}" width="480" height="480" loading="lazy">
-          <div class="blog-img-identifier">${postIndex}</div>
-        </div>
-        <div style="color: var(--color-violet); font-family: 'Orbitron', monospace; margin-bottom: 1rem;">${post.categoria} &bull; ${post.fecha}</div>
-        <h1 style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; margin-bottom: 2rem; line-height: 1.2;">${post.titulo}</h1>
-        <div style="line-height: 1.8; font-size: 1.1rem; color: #B0B0B0;">
-            ${post.contenido}
-        </div>
-    `;
-    
-    postContainer.innerHTML = html;
-    
-    // UI toggles
-    listContainer.style.display = 'none';
-    postContainer.style.display = 'block';
-    postContainer.classList.add('visible'); // Fix for IntersectionObserver on tall elements
-
-    
-    // Optional: Update hero
-    if(heroTitle) heroTitle.innerHTML = `<span style="font-size: 1.5rem; opacity: 0.8;">Blog Cynor</span>`;
-    
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const list = document.getElementById('blog-list');
+    const article = document.getElementById('blog-post');
+    const head = document.getElementById('blog-head');
+    article.innerHTML = `
+        <a class="link-arrow article__back" href="#"><span class="circle"><i class="ph ph-arrow-left" aria-hidden="true"></i></span> Volver al blog</a>
+        <p class="post-card__meta mono">${post.categoria} · ${post.fecha}</p>
+        <h1>${post.titulo}</h1>
+        <div class="article__img"><img src="${post.imagen}" alt="" width="800" height="450"></div>
+        <div class="prose">${post.contenido}</div>
+        <div class="feature-quote feature-quote--lime" style="margin-top:56px;grid-template-columns:1fr">
+          <div>
+            <p class="h3-display">¿Quieres esto en tu negocio?</p>
+            <p style="margin:12px 0 20px">Haz el diagnóstico gratis y te decimos por dónde empezar.</p>
+            <a class="btn btn--ink" href="/#diagnostico">Diagnóstico gratis <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </div>`;
+    list.hidden = true;
+    article.hidden = false;
+    if (head) head.hidden = true;
+    document.title = post.titulo + ' | Blog Cynor';
+    window.scrollTo({ top: 0, behavior: 'auto' });
 }
 
-// Start
 document.addEventListener('DOMContentLoaded', initBlog);

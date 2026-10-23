@@ -12,9 +12,14 @@ __pycache__/
 # Logs
 *.log
 
-# Scripts internos (NO producción)
-scripts/
+# Scripts internos (NO producción), salvo el build y el servidor local del sitio
+scripts/*
 *.py
+!scripts/build.py
+!scripts/dev_server.py
+
+# Bocetos de diseño locales
+.superpowers/
 
 # Archivos de prueba
 test.log
