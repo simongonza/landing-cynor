@@ -29,7 +29,7 @@
   <link rel="preload" href="/fonts/source-sans-3.woff" as="font" type="font/woff" crossorigin>
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
-  <link rel="stylesheet" href="/css/cynor.css?v=1c4d6b7770">
+  <link rel="stylesheet" href="/css/cynor.css?v=486cb8ffc1">
 
   <script type="application/ld+json">
   {
@@ -189,45 +189,47 @@
     </div>
 
     <section class="section" aria-labelledby="pains-title">
-      <div class="container pains">
-        <div class="pains__head">
-          <h2 class="h2" id="pains-title" data-reveal>Lo que se te escapa cada semana</h2>
-          <p class="body-l" data-reveal style="--i:1">No es falta de ganas. Es que el negocio todavía depende de que tú respondas, cotices y hagas seguimiento a mano.</p>
-          <a class="link-arrow" href="#calculadora" data-reveal style="--i:2">Calcula cuánto te cuesta <span class="circle"><i class="ph ph-arrow-down" aria-hidden="true"></i></span></a>
-        </div>
-        <div class="pain-list">
-          <article class="pain" data-reveal="right">
-            <span class="pain__icon"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i></span>
-            <div>
-              <h3>Un paciente escribe y tú estás en consulta</h3>
-              <p>Cuando por fin respondes, ya agendó con otro.</p>
-              <p class="pain__fix"><i class="ph-fill ph-check-circle" aria-hidden="true"></i>Tu agente responde y agenda en segundos.</p>
+      <div class="container">
+        <div class="pains" data-flip>
+          <div class="pains__head">
+            <h2 class="h2" id="pains-title" data-reveal>Lo que se te escapa cada semana</h2>
+            <p class="body-l" data-reveal style="--i:1">No es falta de ganas. Es que el negocio todavía depende de que tú lo hagas todo a mano.</p>
+            <div class="switch" data-reveal style="--i:2">
+              <span class="switch__label" data-side="off">Sin Cynor</span>
+              <button class="switch__btn" type="button" role="switch" aria-checked="false" aria-label="Ver cómo cambia con Cynor"><span></span></button>
+              <span class="switch__label" data-side="on">Con Cynor</span>
+            </div>
+          </div>
+          <div class="flip-list">
+          <article class="flip" data-reveal="right" style="--i:0">
+            <span class="flip__icon" aria-hidden="true"><i class="ph ph-x flip__x"></i><i class="ph ph-check flip__ok"></i></span>
+            <div class="flip__text">
+              <div class="flip__before"><h3>Un paciente escribe y tú estás en consulta</h3><p>Cuando por fin respondes, ya agendó con otro.</p></div>
+              <div class="flip__after"><h3>Tu agente le responde en segundos</h3><p>Y le agenda la cita, aunque estés ocupado.</p></div>
             </div>
           </article>
-          <article class="pain" data-reveal="right" style="--i:1">
-            <span class="pain__icon"><i class="ph ph-hourglass-medium" aria-hidden="true"></i></span>
-            <div>
-              <h3>Cotizar te toma media hora</h3>
-              <p>Medir, calcular y escribir todo a mano, una y otra vez.</p>
-              <p class="pain__fix"><i class="ph-fill ph-check-circle" aria-hidden="true"></i>La cotización sale sola, en minutos.</p>
+          <article class="flip" data-reveal="right" style="--i:1">
+            <span class="flip__icon" aria-hidden="true"><i class="ph ph-x flip__x"></i><i class="ph ph-check flip__ok"></i></span>
+            <div class="flip__text">
+              <div class="flip__before"><h3>Cotizar te toma media hora</h3><p>Medir, calcular y escribir todo a mano, una y otra vez.</p></div>
+              <div class="flip__after"><h3>La cotización sale sola</h3><p>Lista para enviar en minutos, con tus precios.</p></div>
             </div>
           </article>
-          <article class="pain" data-reveal="right" style="--i:2">
-            <span class="pain__icon"><i class="ph ph-receipt" aria-hidden="true"></i></span>
-            <div>
-              <h3>Se te escapan cobros y seguimientos</h3>
-              <p>Lo que no está en el calendario de alguien, se olvida.</p>
-              <p class="pain__fix"><i class="ph-fill ph-check-circle" aria-hidden="true"></i>Los recordatorios salen solos, a tiempo.</p>
+          <article class="flip" data-reveal="right" style="--i:2">
+            <span class="flip__icon" aria-hidden="true"><i class="ph ph-x flip__x"></i><i class="ph ph-check flip__ok"></i></span>
+            <div class="flip__text">
+              <div class="flip__before"><h3>Se te escapan cobros y seguimientos</h3><p>Lo que no está en el calendario de alguien, se olvida.</p></div>
+              <div class="flip__after"><h3>Los recordatorios salen solos</h3><p>Cada cobro y cada seguimiento, a tiempo.</p></div>
             </div>
           </article>
-          <article class="pain" data-reveal="right" style="--i:3">
-            <span class="pain__icon"><i class="ph ph-megaphone" aria-hidden="true"></i></span>
-            <div>
-              <h3>Pagas pauta y no sabes qué vendió</h3>
-              <p>Hay visitas y likes, pero al final del mes no sabes cuántos fueron clientes.</p>
-              <p class="pain__fix"><i class="ph-fill ph-check-circle" aria-hidden="true"></i>Cada peso con un objetivo y un número.</p>
+          <article class="flip" data-reveal="right" style="--i:3">
+            <span class="flip__icon" aria-hidden="true"><i class="ph ph-x flip__x"></i><i class="ph ph-check flip__ok"></i></span>
+            <div class="flip__text">
+              <div class="flip__before"><h3>Pagas pauta y no sabes qué vendió</h3><p>Hay visitas y likes, pero no sabes cuántos fueron clientes.</p></div>
+              <div class="flip__after"><h3>Sabes qué anuncio trajo cada cliente</h3><p>Cada peso con un objetivo y un número.</p></div>
             </div>
           </article>
+          </div>
         </div>
       </div>
     </section>
@@ -238,10 +240,9 @@
           <h2 class="h2" id="lines-title" data-reveal>Tres formas de quitarte trabajo de encima</h2>
           <p class="body-l" data-reveal style="--i:1">Empieza por la que más te duele hoy. Todo se conecta después.</p>
         </div>
-        <div class="lines-grid">
-          <a class="line-card line-card--salud" href="/salud" data-tilt data-reveal>
-            <i class="ph ph-first-aid-kit line-card__deco" aria-hidden="true"></i>
-            <div>
+        <div class="stack">
+          <a class="line-card line-card--salud" href="/salud" style="--n:0">
+            <div class="line-card__body">
               <span class="line-card__who mono">Consultorios y clínicas</span>
               <h3 class="h2">Agentes IA para salud</h3>
               <ul>
@@ -249,30 +250,35 @@
                 <li><i class="ph-fill ph-check-circle" aria-hidden="true"></i>Agenda, confirma y recuerda las citas</li>
                 <li><i class="ph-fill ph-check-circle" aria-hidden="true"></i>Te pasa solo los casos que necesitan a una persona</li>
               </ul>
+              <span class="link-arrow">Ver agentes para salud <span class="circle"><i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
             </div>
-            <span class="link-arrow">Ver agentes para salud <span class="circle"><i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            <span class="line-card__art" aria-hidden="true"><i class="ph ph-first-aid-kit"></i></span>
           </a>
-          <a class="line-card line-card--auto" href="/automatizaciones" data-tilt data-reveal style="--i:1">
-            <i class="ph ph-flow-arrow line-card__deco" aria-hidden="true"></i>
-            <div>
+          <a class="line-card line-card--auto" href="/automatizaciones" style="--n:1">
+            <div class="line-card__body">
               <span class="line-card__who mono">Empresas</span>
               <h3 class="h2">Automatizaciones</h3>
               <ul>
-                <li><i class="ph-fill ph-check-circle" aria-hidden="true"></i>Cotizaciones, cobros y seguimientos que pasan solos</li>
+                <li><i class="ph-fill ph-check-circle" aria-hidden="true"></i>Cotizaciones que salen solas, en minutos</li>
+                <li><i class="ph-fill ph-check-circle" aria-hidden="true"></i>Cobros y seguimientos que no se olvidan</li>
+                <li><i class="ph-fill ph-check-circle" aria-hidden="true"></i>Reportes de tu negocio sin armar hojas de cálculo</li>
               </ul>
+              <span class="link-arrow">Ver automatizaciones <span class="circle"><i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
             </div>
-            <span class="link-arrow">Ver automatizaciones <span class="circle"><i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            <span class="line-card__art" aria-hidden="true"><i class="ph ph-flow-arrow"></i></span>
           </a>
-          <a class="line-card line-card--mkt" href="/marketing" data-tilt data-reveal style="--i:2">
-            <i class="ph ph-megaphone line-card__deco" aria-hidden="true"></i>
-            <div>
+          <a class="line-card line-card--mkt" href="/marketing" style="--n:2">
+            <div class="line-card__body">
               <span class="line-card__who mono">Empresas</span>
               <h3 class="h2">Pauta y páginas web</h3>
               <ul>
                 <li><i class="ph-fill ph-check-circle" aria-hidden="true"></i>Campañas en Meta y Google enfocadas en clientes reales</li>
+                <li><i class="ph-fill ph-check-circle" aria-hidden="true"></i>Páginas hechas para que te escriban</li>
+                <li><i class="ph-fill ph-check-circle" aria-hidden="true"></i>Un reporte claro: cuánto invertiste y qué vendiste</li>
               </ul>
+              <span class="link-arrow">Ver marketing <span class="circle"><i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
             </div>
-            <span class="link-arrow">Ver marketing <span class="circle"><i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            <span class="line-card__art" aria-hidden="true"><i class="ph ph-megaphone"></i></span>
           </a>
         </div>
       </div>
@@ -496,7 +502,7 @@
     <button class="btn btn--ink btn--sm" id="cookieOk">Entendido</button>
   </div>
 
-  <script src="/js/cynor.js?v=1c4d6b7770" defer></script>
+  <script src="/js/cynor.js?v=486cb8ffc1" defer></script>
   
 </body>
 </html>

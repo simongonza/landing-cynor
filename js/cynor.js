@@ -145,6 +145,48 @@
     }, { threshold: 0.4 });
   });
 
+  /* Dolores: interruptor Sin Cynor / Con Cynor */
+  $$('[data-flip]').forEach(function (panel) {
+    var btn = $('.switch__btn', panel);
+    var touched = false;
+    function set(on) {
+      panel.classList.toggle('is-on', on);
+      btn.setAttribute('aria-checked', String(on));
+    }
+    btn.addEventListener('click', function () {
+      touched = true;
+      set(!panel.classList.contains('is-on'));
+      track('interruptor_con_cynor', { estado: panel.classList.contains('is-on') ? 'con' : 'sin' });
+    });
+    $$('.switch__label', panel).forEach(function (label) {
+      label.addEventListener('click', function () {
+        touched = true;
+        set(label.getAttribute('data-side') === 'on');
+      });
+    });
+    // Demostración: si nadie lo ha tocado, se activa solo una vez al verlo
+    if (!reduceMotion) {
+      onInView([panel], function () {
+        setTimeout(function () { if (!touched) set(true); }, 1600);
+      }, { threshold: 0.55 });
+    }
+  });
+
+  /* Tarjetas apiladas: la de abajo se encoge cuando la siguiente la cubre */
+  $$('.stack').forEach(function (stack) {
+    var cards = $$('.line-card', stack);
+    if (cards.length < 2 || !('IntersectionObserver' in window)) return;
+    cards.slice(1).forEach(function (card, idx) {
+      var prev = cards[idx];
+      var io = new IntersectionObserver(function (entries) {
+        var e = entries[0];
+        var stuckLine = prev.getBoundingClientRect().top + 60;
+        prev.classList.toggle('is-under', e.boundingClientRect.top <= stuckLine && e.isIntersecting);
+      }, { threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1] });
+      io.observe(card);
+    });
+  });
+
   /* Línea de tiempo: avanza a medida que aparecen los momentos */
   $$('[data-timeline]').forEach(function (tl) {
     var moments = $$('.moment', tl);
