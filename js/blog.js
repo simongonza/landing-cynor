@@ -84,7 +84,7 @@ function renderPost(post) {
         <h1>${post.titulo}</h1>
         <div class="article__img"><img src="${post.imagen}" alt="" width="800" height="450"></div>
         <div class="prose">${post.contenido}</div>
-        <div class="feature-quote" style="margin-top:56px;grid-template-columns:1fr">
+        <div class="feature-quote feature-quote--lime" style="margin-top:56px;grid-template-columns:1fr">
           <div>
             <p class="h3-display">¿Quieres esto en tu negocio?</p>
             <p style="margin:12px 0 20px">Haz el diagnóstico gratis y te decimos por dónde empezar.</p>
