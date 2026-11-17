@@ -242,6 +242,16 @@
     });
   }
 
+  /* Home: Zyra en video, solo se reproduce cuando está en pantalla (nunca con movimiento reducido) */
+  $$('[data-zyra-video]').forEach(function (v) {
+    if (reduceMotion || !('IntersectionObserver' in window)) return;
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else { v.pause(); }
+      });
+    }, { threshold: 0.15 }).observe(v);
+  });
+
   /* Home: pregúntale a Zyra (abre WhatsApp con la pregunta escrita) */
   $$('[data-ask]').forEach(function (form) {
     form.addEventListener('submit', function (e) {

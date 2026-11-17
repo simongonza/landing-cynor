@@ -153,10 +153,18 @@
 
     <section class="ask" id="zyra" aria-labelledby="ask-title">
       <div class="ask__card" data-reveal="scale">
-        <div class="ask__img" role="img" aria-label="Zyra, la IA de Cynor"></div>
+        <div class="ask__img">
+          <span class="ask__beam ask__beam--v" aria-hidden="true"></span>
+          <span class="ask__beam ask__beam--o" aria-hidden="true"></span>
+          <video class="ask__video" muted loop playsinline preload="metadata" poster="/src/zyra-poster.jpg" aria-label="Zyra, la IA de Cynor, saludando" data-zyra-video>
+            <source src="/src/zyra-loop.webm" type="video/webm">
+            <source src="/src/zyra-loop.mp4" type="video/mp4">
+          </video>
+          <span class="ask__tag mono" aria-hidden="true"><i></i>Zyra en línea</span>
+        </div>
         <div class="ask__body">
           <span class="mono ask__eyebrow">Pregúntale a Zyra</span>
-          <h2 id="ask-title">¿Tienes dudas? Escríbele a Zyra, la IA de Cynor.</h2>
+          <h2 id="ask-title">¿Tienes dudas? <em>Pregúntale a Zyra,</em> la IA de Cynor.</h2>
           <p>Elige una pregunta o escribe la tuya. Se abre WhatsApp con el mensaje listo.</p>
           <div class="ask__chips">
             <a class="ask__chip" href="https://wa.me/573128861517?text=Hola%20Zyra%2C%20%C2%BFun%20agente%20de%20IA%20le%20sirve%20a%20mi%20negocio%3F" target="_blank" rel="noopener" data-track="zyra_pregunta">¿Un agente de IA le sirve a mi negocio? <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
