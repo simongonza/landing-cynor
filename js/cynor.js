@@ -145,6 +145,129 @@
     }, { threshold: 0.4 });
   });
 
+  /* Home: texto que se enciende palabra por palabra al hacer scroll */
+  $$('[data-scrollwords]').forEach(function (el) {
+    el.innerHTML = el.textContent.trim().split(/\s+/).map(function (w) { return '<span class="sw">' + w + '</span>'; }).join(' ');
+    var words = $$('.sw', el);
+    if (reduceMotion || !('IntersectionObserver' in window)) { words.forEach(function (w) { w.classList.add('lit'); }); return; }
+    var steps = [];
+    for (var k = 0; k <= 50; k++) steps.push(k / 50);
+    new IntersectionObserver(function (entries) {
+      var r = entries[0].boundingClientRect, vh = window.innerHeight;
+      var prog = Math.min(1, Math.max(0, (vh * 0.88 - r.top) / (r.height + vh * 0.3)));
+      var n = Math.round(prog * words.length);
+      words.forEach(function (w, i) { w.classList.toggle('lit', i < n); });
+    }, { threshold: steps }).observe(el);
+  });
+
+  /* Home: cifras que cuentan */
+  $$('[data-stats]').forEach(function (box) {
+    onInView([box], function () {
+      $$('[data-count]', box).forEach(function (b) {
+        var to = parseFloat(b.getAttribute('data-count'));
+        var dec = Number(b.getAttribute('data-dec') || 0);
+        var suf = b.getAttribute('data-suffix') || '';
+        var paint = function (v) { b.innerHTML = v.toFixed(dec) + (suf ? '<small>' + suf + '</small>' : ''); };
+        if (reduceMotion) { paint(to); return; }
+        var t0 = performance.now();
+        (function tick(now) {
+          var k = Math.min(1, (now - t0) / 1500);
+          paint(to * (1 - Math.pow(1 - k, 3)));
+          if (k < 1) requestAnimationFrame(tick);
+        })(t0);
+      });
+    }, { threshold: 0.4 });
+  });
+
+  /* Home: historia fija (un sistema, tres pasos) */
+  $$('[data-story]').forEach(function (story) {
+    var steps = $$('.story__step', story);
+    var scenes = $$('.scene', story);
+    var ticker = $('[data-ticker]', story);
+    var tickTimer = null;
+    function runTicker() {
+      if (!ticker || reduceMotion) { if (ticker) ticker.textContent = '27'; return; }
+      clearInterval(tickTimer);
+      var n = 0;
+      ticker.textContent = '0';
+      tickTimer = setInterval(function () { n += 1; ticker.textContent = String(n); if (n >= 27) clearInterval(tickTimer); }, 55);
+    }
+    var current = -1;
+    function show(i) {
+      if (i === current) return;
+      current = i;
+      steps.forEach(function (s, k) { s.classList.toggle('is-on', k === i); });
+      scenes.forEach(function (s, k) { s.classList.toggle('is-on', k === i); });
+      if (i === 0) runTicker();
+    }
+    show(0);
+    var mobile = window.matchMedia('(max-width: 900px)');
+    if (mobile.matches) {
+      // En celular no se fija: los pasos avanzan solos mientras la sección está a la vista
+      var timer = null;
+      onInView([story], function () {
+        if (reduceMotion) return;
+        timer = setInterval(function () { show((current + 1) % steps.length); }, 4200);
+      }, { threshold: 0.3 });
+      steps.forEach(function (s, k) { s.addEventListener('click', function () { clearInterval(timer); show(k); }); });
+      return;
+    }
+    $$('.story__marker', story).forEach(function (m) {
+      new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) show(Number(m.getAttribute('data-step')));
+      }, { rootMargin: '-42% 0px -42% 0px' }).observe(m);
+    });
+  });
+
+  /* Home: tarjetas con inclinación 3D y reflejo */
+  if (finePointer && !reduceMotion) {
+    $$('[data-tilt3d]').forEach(function (card) {
+      var frame = null;
+      card.addEventListener('pointermove', function (e) {
+        if (frame) return;
+        frame = requestAnimationFrame(function () {
+          var r = card.getBoundingClientRect();
+          var x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+          card.style.setProperty('--ry', ((x - 0.5) * 9).toFixed(2) + 'deg');
+          card.style.setProperty('--rx', ((0.5 - y) * 9).toFixed(2) + 'deg');
+          card.style.setProperty('--gx', (x * 100).toFixed(1) + '%');
+          card.style.setProperty('--gy', (y * 100).toFixed(1) + '%');
+          frame = null;
+        });
+      });
+      card.addEventListener('pointerleave', function () {
+        card.style.setProperty('--ry', '0deg');
+        card.style.setProperty('--rx', '0deg');
+      });
+    });
+  }
+
+  /* Home: pregúntale a Zyra (abre WhatsApp con la pregunta escrita) */
+  $$('[data-ask]').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var q = $('input', form).value.trim();
+      if (!q) { $('input', form).focus(); return; }
+      track('zyra_pregunta_libre', {});
+      window.open(waLink('Hola Zyra, ' + q), '_blank', 'noopener');
+    });
+  });
+
+  /* Home: testimonios uno a la vez */
+  $$('[data-quotes-fade]').forEach(function (box) {
+    var qs = $$('.cq', box), btns = $$('.cine-quotes__people button', box);
+    var i = 0, timer = null;
+    function show(k) {
+      i = k;
+      qs.forEach(function (q, j) { q.classList.toggle('is-on', j === k); });
+      btns.forEach(function (b, j) { b.classList.toggle('is-on', j === k); b.setAttribute('aria-pressed', String(j === k)); });
+      clearTimeout(timer);
+      if (!reduceMotion) timer = setTimeout(function () { show((i + 1) % qs.length); }, 6500);
+    }
+    btns.forEach(function (b, k) { b.addEventListener('click', function () { show(k); }); });
+    show(0);
+  });
+
   /* Línea de tiempo: avanza a medida que aparecen los momentos */
   $$('[data-timeline]').forEach(function (tl) {
     var moments = $$('.moment', tl);

@@ -87,8 +87,8 @@ function renderPost(post) {
         <div class="feature-quote feature-quote--lime" style="margin-top:56px;grid-template-columns:1fr">
           <div>
             <p class="h3-display">¿Quieres esto en tu negocio?</p>
-            <p style="margin:12px 0 20px">Haz el diagnóstico gratis y te decimos por dónde empezar.</p>
-            <a class="btn btn--ink" href="/#diagnostico">Diagnóstico gratis <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+            <p style="margin:12px 0 20px">Agenda una llamada gratis de 30 minutos y te decimos por dónde empezar.</p>
+            <a class="btn btn--ink" href="https://wa.me/573128861517?text=Hola%20Cynor%2C%20quiero%20agendar%20una%20llamada%20de%2030%20minutos" target="_blank" rel="noopener">Agenda una llamada <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
           </div>
         </div>`;
     list.hidden = true;

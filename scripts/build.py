@@ -43,7 +43,7 @@ ORGANIZATION = {
 
 def asset_version():
     h = hashlib.sha1()
-    for p in [ROOT / "css/cynor.css", ROOT / "js/cynor.js", ROOT / "js/blog.js"]:
+    for p in [ROOT / "css/cynor.css", ROOT / "js/cynor.js", ROOT / "js/blog.js", ROOT / "js/hero3d.js"]:
         h.update(p.read_bytes())
     return h.hexdigest()[:10]
 
