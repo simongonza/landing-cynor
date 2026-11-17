@@ -29,7 +29,7 @@
   <link rel="preload" href="/fonts/source-sans-3.woff" as="font" type="font/woff" crossorigin>
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
-  <link rel="stylesheet" href="/css/cynor.css?v=e9c3462a39">
+  <link rel="stylesheet" href="/css/cynor.css?v=392eb204b2">
 
   <script type="application/ld+json">
   {
@@ -184,26 +184,26 @@
         <div class="container story__grid">
           <div class="story__text">
             <h2 class="story__title" id="story-title">Un sistema, tres pasos</h2>
+            <p class="story__hint mono">Toca cada paso para verlo</p>
             <div class="story__steps">
               <article class="story__step is-on">
-                <span class="story__num">01</span>
-                <h3>Atraer</h3>
+                <button type="button" class="story__btn" aria-controls="story-stage"><span class="story__num">01</span><span class="story__name">Atraer</span><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
+                <span class="story__bar" aria-hidden="true"></span>
                 <p>Creamos y manejamos tus anuncios en Instagram, Facebook y Google para que te escriba gente que sí quiere comprar.</p>
               </article>
               <article class="story__step">
-                <span class="story__num">02</span>
-                <h3>Atender</h3>
+                <button type="button" class="story__btn" aria-controls="story-stage"><span class="story__num">02</span><span class="story__name">Atender</span><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
+                <span class="story__bar" aria-hidden="true"></span>
                 <p>Un agente IA entrenado con tu negocio responde en segundos, resuelve dudas y agenda. A cualquier hora.</p>
               </article>
               <article class="story__step">
-                <span class="story__num">03</span>
-                <h3>Cerrar</h3>
+                <button type="button" class="story__btn" aria-controls="story-stage"><span class="story__num">03</span><span class="story__name">Cerrar</span><i class="ph ph-arrow-right" aria-hidden="true"></i></button>
+                <span class="story__bar" aria-hidden="true"></span>
                 <p>Recordatorios, seguimiento y reportes que salen solos. Nadie queda sin respuesta ni sin cobrar.</p>
               </article>
             </div>
-            <div class="story__progress" aria-hidden="true"><span></span></div>
           </div>
-          <div class="story__stage" aria-hidden="true">
+          <div class="story__stage" id="story-stage" aria-live="polite">
             <div class="scene scene--ad is-on">
               <div class="ad">
                 <div class="ad__top"><span class="ad__avatar"></span><span><b>Tu negocio</b><small>Patrocinado</small></span></div>
@@ -233,9 +233,6 @@
           </div>
         </div>
       </div>
-      <div class="story__marker" data-step="0"></div>
-      <div class="story__marker" data-step="1"></div>
-      <div class="story__marker" data-step="2"></div>
     </section>
 
     <section class="section" aria-labelledby="who-title">
@@ -385,8 +382,8 @@
     <button class="btn btn--ink btn--sm" id="cookieOk">Entendido</button>
   </div>
 
-  <script src="/js/cynor.js?v=e9c3462a39" defer></script>
+  <script src="/js/cynor.js?v=392eb204b2" defer></script>
   <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
-  <script type="module" src="/js/hero3d.js?v=e9c3462a39"></script>
+  <script type="module" src="/js/hero3d.js?v=392eb204b2"></script>
 </body>
 </html>

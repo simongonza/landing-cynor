@@ -193,29 +193,39 @@
       tickTimer = setInterval(function () { n += 1; ticker.textContent = String(n); if (n >= 27) clearInterval(tickTimer); }, 55);
     }
     var current = -1;
+    var DURATION = 6000;
+    var timer = null;
+    var auto = !reduceMotion;
+    story.style.setProperty('--story-ms', DURATION + 'ms');
     function show(i) {
       if (i === current) return;
       current = i;
-      steps.forEach(function (s, k) { s.classList.toggle('is-on', k === i); });
+      steps.forEach(function (s, k) {
+        s.classList.toggle('is-on', k === i);
+        var b = $('.story__btn', s);
+        if (b) b.setAttribute('aria-expanded', k === i ? 'true' : 'false');
+      });
       scenes.forEach(function (s, k) { s.classList.toggle('is-on', k === i); });
       if (i === 0) runTicker();
     }
-    show(0);
-    var mobile = window.matchMedia('(max-width: 900px)');
-    if (mobile.matches) {
-      // En celular no se fija: los pasos avanzan solos mientras la sección está a la vista
-      var timer = null;
-      onInView([story], function () {
-        if (reduceMotion) return;
-        timer = setInterval(function () { show((current + 1) % steps.length); }, 4200);
-      }, { threshold: 0.3 });
-      steps.forEach(function (s, k) { s.addEventListener('click', function () { clearInterval(timer); show(k); }); });
-      return;
+    function next() {
+      clearTimeout(timer);
+      if (!auto) return;
+      timer = setTimeout(function () { current = (current + 1) % steps.length; var c = current; current = -1; show(c); next(); }, DURATION);
     }
-    $$('.story__marker', story).forEach(function (m) {
-      new IntersectionObserver(function (entries) {
-        if (entries[0].isIntersecting) show(Number(m.getAttribute('data-step')));
-      }, { rootMargin: '-42% 0px -42% 0px' }).observe(m);
+    show(0);
+    // Avanza solo mientras está a la vista; el usuario puede tocar cualquier paso cuando quiera
+    if (auto) {
+      onInView([story], function () { story.classList.add('is-auto'); var c = current; current = -1; show(c); next(); }, { threshold: 0.35 });
+    }
+    steps.forEach(function (s, k) {
+      s.addEventListener('click', function () {
+        auto = false;
+        clearTimeout(timer);
+        story.classList.remove('is-auto');
+        show(k);
+        track('story_paso', { paso: k + 1 });
+      });
     });
   });
 
