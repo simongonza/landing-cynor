@@ -2,7 +2,8 @@
    Fondo crema, paleta del manual de marca, Space Age (títulos), OCR A Extended (etiquetas), Source Sans 3 (texto).
    Radios: botones y chips en píldora; tarjetas 24px; paneles grandes 36px; campos 14px. */
 
-@font-face { font-family: "Space Age"; src: url("/fonts/space-age.woff") format("woff"); font-display: swap; }
+/* Los dígitos de Space Age se leen mal (9 parece q, 7 parece >): los números caen a Source Sans */
+@font-face { font-family: "Space Age"; src: url("/fonts/space-age.woff") format("woff"); font-display: swap; unicode-range: U+0000-002E, U+003A-FFFF; }
 @font-face { font-family: "OCR A"; src: url("/fonts/ocr-a-extended.woff") format("woff"); font-display: swap; }
 @font-face { font-family: "Source Sans 3"; src: url("/fonts/source-sans-3.woff") format("woff"); font-weight: 200 900; font-display: swap; }
 
