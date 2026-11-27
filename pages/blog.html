@@ -1,22 +1,29 @@
 <!--meta
 {
-  "title": "Blog | Cynor",
-  "description": "Ideas prácticas sobre agentes IA, automatización y marketing para consultorios y empresas en Colombia.",
+  "title": "Blog y vlog de IA, automatización y marketing | Cynor",
+  "description": "Artículos y vlogs con Zyra sobre agentes de IA para WhatsApp, automatización y publicidad en Meta y Google Ads para consultorios y empresas en Colombia.",
   "path": "/blog",
   "nav": "blog",
   "scripts": "<script src=\"/js/blog.js?v={{asset_v}}\" defer></script>",
   "schema": [
-    {"@type": "Blog", "name": "Blog Cynor", "url": "https://www.cynor.digital/blog", "inLanguage": "es-CO"}
+    {"@type": "Blog", "name": "Blog Cynor", "url": "https://www.cynor.digital/blog", "inLanguage": "es-CO", "publisher": {"@id": "https://www.cynor.digital/#organization"}}
   ]
 }
 -->
     <section class="section--tight">
       <div class="container">
-        <div id="blog-head" class="hero-in" style="margin-bottom:clamp(32px,5vw,56px)">
-          <h1 class="h1">Blog</h1>
-          <p class="lead" style="margin-top:16px">Ideas prácticas sobre agentes IA, automatización y marketing. Sin tecnicismos.</p>
+        <div class="blog-head hero-in">
+          <span class="mono blog-head__eyebrow">Blog y vlog</span>
+          <h1 class="h1">Ideas para atender mejor y vender más</h1>
+          <p class="lead">Agentes de IA, automatización y publicidad, explicados sin tecnicismos. Con vlogs de Zyra, la IA de Cynor.</p>
+          <div class="blog-filter" role="group" aria-label="Filtrar publicaciones" data-blog-filter hidden>
+            <button type="button" class="is-on" data-f="todo" aria-pressed="true">Todo</button>
+            <button type="button" data-f="vlog" aria-pressed="false"><i class="ph-fill ph-play" aria-hidden="true"></i> Vlog</button>
+            <button type="button" data-f="articulo" aria-pressed="false">Artículos</button>
+          </div>
         </div>
-        <div class="posts" id="blog-list"></div>
-        <article class="article" id="blog-post" hidden></article>
+        <div class="posts" id="blog-list">
+<!-- blog-list -->
+        </div>
       </div>
     </section>
